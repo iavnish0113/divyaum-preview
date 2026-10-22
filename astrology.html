@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Vedic Astrology — Divyaum</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="astrology">
+<div id="site-header"></div>
+
+<main>
+<section class="sec dark" style="padding-top:72px"><div class="wrap split">
+<div>
+<div class="crumbs" style="color:var(--on-dark-muted)"><a href="index.html" style="color:var(--on-dark-muted)">Home</a> / Astrology</div>
+<div class="eyebrow">Vedic Astrology</div>
+<h1 style="color:#fff">Tell us what’s on your mind. We’ll match you with the right acharya.</h1>
+<p class="lead">Share your concern and birth details. Our team connects you with an experienced jyotish acharya who specialises in exactly that area — and calls you back on WhatsApp.</p>
+<div class="ticks">
+<div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5.5-6"/></svg><span>Matched to an acharya for your exact concern</span></div>
+<div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5.5-6"/></svg><span>Consultations in Hindi or English</span></div>
+<div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5.5-6"/></svg><span>Clear, simple remedies — pooja, mantra or gemstone</span></div>
+<div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5.5-6"/></svg><span>Your birth details stay private</span></div>
+</div>
+</div>
+
+<form class="form-card" id="astroForm" novalidate>
+<fieldset>
+<legend>1. What do you need guidance on?</legend>
+<div class="topics" id="topics">
+<button type="button" class="topic" data-t="career" aria-pressed="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M9 7V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v2M3 13h18"/></svg>Career &amp; Job</button>
+<button type="button" class="topic" data-t="marriage" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="14" r="6"/><circle cx="15" cy="14" r="6"/></svg>Marriage &amp; Relationship</button>
+<button type="button" class="topic" data-t="business" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V10M10 20V6M15 20v-8M20 20V4"/></svg>Business &amp; Money</button>
+<button type="button" class="topic" data-t="health" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.5-7 10-7 10z"/></svg>Health</button>
+<button type="button" class="topic" data-t="kundli" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18"/><path d="M12 3l9 9-9 9-9-9z"/></svg>Kundli / Birth Chart</button>
+<button type="button" class="topic" data-t="vastu" aria-pressed="false"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>Vastu &amp; Other</button>
+</div>
+</fieldset>
+<fieldset>
+<legend>2. Your details</legend>
+<div class="fields">
+<label class="f">Full name<input type="text" name="name" placeholder="Your name" autocomplete="name"></label>
+<label class="f">WhatsApp number<input type="tel" name="phone" placeholder="+91" autocomplete="tel"></label>
+<label class="f">Date of birth<input type="date" name="dob"></label>
+<label class="f">Time of birth<input type="time" name="tob"></label>
+<label class="f">Place of birth<input type="text" name="pob" placeholder="City, State"></label>
+<label class="f">Preferred language<select name="lang"><option>Hindi</option><option>English</option></select></label>
+<label class="f full">Your question (optional)<textarea rows="3" name="q" placeholder="e.g. When is a good time to change my job?"></textarea></label>
+</div>
+</fieldset>
+<button type="submit" class="btn btn-primary btn-lg">Get my consultation</button>
+<div class="form-ok" id="formOk" role="status">Thank you — our team will contact you on WhatsApp shortly. (Design preview: nothing has been sent.)</div>
+<div class="form-note">Consultations from ₹2,001. Our team will call you on WhatsApp within [TIME].</div>
+</form>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<div class="sec-head"><div><div class="eyebrow">How it works</div><h2>From your question to clear guidance</h2></div></div>
+<div class="steps" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+<div class="step"><div class="n">01</div><b>Share your concern</b><span>Pick a topic and add birth details</span></div>
+<div class="step"><div class="n">02</div><b>We match an acharya</b><span>A specialist in your area</span></div>
+<div class="step"><div class="n">03</div><b>One-on-one consultation</b><span>On call or video, in your language</span></div>
+<div class="step"><div class="n">04</div><b>Remedies that fit</b><span>Pooja, mantra or gemstone guidance</span></div>
+</div>
+</div></section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/site.js"></script>
+<script>
+(function(){
+  var t = new URLSearchParams(location.search).get("t");
+  if (t) document.querySelectorAll("#topics .topic").forEach(function(b){ b.setAttribute("aria-pressed", b.dataset.t===t ? "true" : "false"); });
+})();
+</script>
+</body>
+</html>

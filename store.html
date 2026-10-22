@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Divya Store — Divyaum</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="store">
+<div id="site-header"></div>
+
+<main>
+<section class="page-hero"><div class="wrap">
+<div class="crumbs"><a href="index.html">Home</a> / Divya Store</div>
+<div class="eyebrow" id="heroEyebrow">Divya Store</div>
+<h1 id="heroTitle">Sacred essentials, made pure</h1>
+<p class="lead" id="heroLead">Natural, bamboo-free dhoop made with an A2 cow-dung base — no charcoal, no synthetic fragrance — plus hand-crafted sacred art from DivyAum Luxe.</p>
+</div></section>
+
+<section class="sec" style="padding-top:48px"><div class="wrap">
+<div class="toolbar">
+<div class="chips" data-target="storeGrid" id="storeChips">
+<button type="button" class="chip on" data-f="all">All</button>
+<button type="button" class="chip" data-f="sticks">Dhoop Sticks</button>
+<button type="button" class="chip" data-f="cones">Dhoop Cones</button>
+<button type="button" class="chip" data-f="havan">Havan Cups</button>
+<button type="button" class="chip" data-f="fragrance">Pooja Fragrance</button>
+<button type="button" class="chip" data-f="combo">Combos</button>
+<button type="button" class="chip" data-f="luxe">DivyAum Luxe</button>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<span class="count" id="storeGridCount"></span>
+<label style="font-size:14px;color:var(--muted);display:flex;align-items:center;gap:8px">Sort
+<select id="sort"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></label>
+</div>
+</div>
+<div class="grid grid-4" id="storeGrid"></div>
+</div></section>
+
+<section class="sec-tight" style="background:#fff;border-top:1px solid var(--line)"><div class="wrap">
+<div class="purity" style="margin-top:0">
+<div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5.5-6"/></svg>Bamboo-free dhoop</div>
+<div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5.5-6"/></svg>A2 cow-dung base from gaushala</div>
+<div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5.5-6"/></svg>No charcoal</div>
+<div><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5.5-6"/></svg>No synthetic fragrance</div>
+</div>
+</div></section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/site.js"></script>
+<script>
+(function(){
+  var grid = document.getElementById("storeGrid");
+  var order = DV.products.slice().sort(function(a,b){
+    var ga = a.cat==="luxe"?1:0, gb = b.cat==="luxe"?1:0;
+    if (ga!==gb) return ga-gb;
+    return (a.best||a.lux||99)-(b.best||b.lux||99);
+  });
+  function render(list){ grid.innerHTML = list.map(DV.card).join(""); }
+  render(order);
+
+  var c = new URLSearchParams(location.search).get("c");
+  if (c) {
+    document.querySelectorAll("#storeChips .chip").forEach(function(x){ x.classList.toggle("on", x.dataset.f===c); });
+  }
+  if (c === "luxe") {
+    document.body.setAttribute("data-page","luxe");
+    document.getElementById("heroEyebrow").textContent = "DivyAum Luxe";
+    document.getElementById("heroTitle").textContent = "Handcrafted sacred art";
+    document.getElementById("heroLead").textContent = "Hand-painted acrylic canvases and hand-embroidered zardozi on cotton — each piece made by hand and ready to hang. Frames not included.";
+    document.querySelector(".crumbs").innerHTML = '<a href="index.html">Home</a> / <a href="store.html">Divya Store</a> / DivyAum Luxe';
+  }
+
+  document.getElementById("sort").addEventListener("change", function(){
+    var v = this.value, list = order.slice();
+    if (v==="low") list.sort(function(a,b){return a.price-b.price;});
+    if (v==="high") list.sort(function(a,b){return b.price-a.price;});
+    render(list);
+    var on = document.querySelector("#storeChips .chip.on");
+    document.getElementById("storeChips")._apply(on ? on.dataset.f : "all");
+  });
+})();
+</script>
+</body>
+</html>

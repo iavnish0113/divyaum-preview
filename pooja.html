@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Online Pooja — Divyaum</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="pooja">
+<div id="site-header"></div>
+
+<main>
+<section class="page-hero"><div class="wrap">
+<div class="crumbs"><a href="index.html">Home</a> / Online Pooja</div>
+<div class="eyebrow">Online Pooja · Ujjain</div>
+<h1>Book a pooja at the sacred temples of Ujjain</h1>
+<p class="lead">Certified pandits perform the ritual with your name and gotra in the sankalp. Join live on Zoom or receive a recorded video — and blessed prasad is couriered to your home, in India or abroad.</p>
+</div></section>
+
+<section class="sec" style="padding-top:48px"><div class="wrap">
+<div class="toolbar">
+<div class="chips" data-target="poojaGrid" data-noun="pooja">
+<button type="button" class="chip on" data-f="all">All poojas</button>
+<button type="button" class="chip" data-f="health">Health &amp; Long Life</button>
+<button type="button" class="chip" data-f="wealth">Career &amp; Wealth</button>
+<button type="button" class="chip" data-f="family">Marriage &amp; Family</button>
+<button type="button" class="chip" data-f="dosha">Dosha Nivaran</button>
+</div>
+<span class="count" id="poojaGridCount"></span>
+</div>
+<div class="grid grid-3" id="poojaGrid"></div>
+</div></section>
+
+<section class="sec" style="background:#fff;border-top:1px solid var(--line)"><div class="wrap">
+<div class="sec-head"><div><div class="eyebrow">Packages</div><h2>Choose how you take part</h2><p class="lead">The same three packages are offered for every pooja.</p></div></div>
+<div class="pkg-grid">
+<div class="pkg"><div class="from">Basic</div><div class="amt">₹2,100</div><p style="margin:0;color:var(--muted)">One participant, joining a group pooja</p>
+<ul><li>Name &amp; gotra sankalp for every participant</li><li>Pooja performed in a group</li><li>Recorded video shared after the pooja</li><li>Certified pandit</li><li>Prasad delivered by courier</li></ul>
+<a href="#" class="btn btn-outline">Select Basic</a></div>
+<div class="pkg best"><span class="tag tag-flame" style="position:static;align-self:flex-start">Most chosen</span><div class="from">Premium</div><div class="amt">₹11,000</div><p style="margin:0;color:var(--muted)">For an individual or a small family</p>
+<ul><li>Live pooja over Zoom</li><li>Certified pandit</li><li>Prasad delivered by courier</li></ul>
+<a href="#" class="btn btn-primary">Select Premium</a></div>
+<div class="pkg"><div class="from">VIP</div><div class="amt">₹21,000</div><p style="margin:0;color:var(--muted)">Complete experience for an individual or a large family</p>
+<ul><li>Individual pooja, live over Zoom</li><li>Certified acharya</li><li>Special pooja kit delivered before the pooja</li><li>Prasad delivered by courier</li></ul>
+<a href="#" class="btn btn-outline">Select VIP</a></div>
+</div>
+</div></section>
+
+<section class="sec" id="how"><div class="wrap">
+<div class="sec-head"><div><div class="eyebrow">How it works</div><h2>Five simple steps</h2></div></div>
+<div class="steps">
+<div class="step"><div class="n">01</div><b>Select a package</b><span>Basic, Premium or VIP</span></div>
+<div class="step"><div class="n">02</div><b>Choose your slot</b><span>Pick an available date</span></div>
+<div class="step"><div class="n">03</div><b>Share sankalp details</b><span>Name and gotra of each person</span></div>
+<div class="step"><div class="n">04</div><b>Join the pooja</b><span>Zoom link, or recorded video</span></div>
+<div class="step"><div class="n">05</div><b>Aarti &amp; prasad</b><span>Prasad delivered by courier</span></div>
+</div>
+<div class="help" style="margin-top:72px">
+<div><h2>Not sure which pooja to choose?</h2><p>Tell us your concern and we’ll recommend the right pooja and slot.</p></div>
+<a href="https://wa.me/919755590829" class="btn btn-dark btn-lg" target="_blank" rel="noopener">Ask on WhatsApp</a>
+</div>
+</div></section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/site.js"></script>
+<script>document.getElementById("poojaGrid").innerHTML = DV.poojas.map(DV.poojaCard).join("").replace(/href="pooja.html"/g,'href="#"');</script>
+</body>
+</html>
