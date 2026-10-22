@@ -6,7 +6,7 @@
   --line:#E7DED1; --line-2:#D6C8B5;
   --gold:#C29A6B; --gold-deep:#8A6A42; --gold-soft:#E6D3B5;
   --flame:#C2381B; --flame-hover:#A32E15; --flame-bright:#E2521F;
-  --kumkum:#8C1D1D; --kumkum-2:#9C2A25; --kumkum-3:#B5463C; --neel:#1E2D5C; --neel-2:#283A78; --neel-3:#3B4F95;
+  --kumkum:#8C1D1D; --kumkum-2:#9C2A25; --kumkum-3:#B5463C; --haldi:#F1DFBF; --haldi-2:#F8EBD4;
   --on-dark:#FBF1E4; --on-dark-muted:#EAD9C8;
   --green:#2F6B47;
   --serif:'Cormorant Garamond', 'Times New Roman', serif;
@@ -102,7 +102,7 @@ nav.main a:hover,nav.main a.active{border-bottom-color:var(--flame);color:var(--
 .arrows{display:flex;gap:10px}
 .arrow{width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.3);background:rgba(110,20,20,.3);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background .2s,border-color .2s}
 .arrow:hover{background:#fff;color:var(--ink);border-color:#fff}
-.zodiac-bg{background:radial-gradient(circle at 72% 50%,#34498E 0%,#25376F 45%,#1E2D5C 75%)}
+.zodiac-bg{background:radial-gradient(circle at 72% 50%,#A8302A 0%,#8C1D1D 50%,#6E1515 85%)}
 .slide.no-scrim::after{display:none}
 .zodiac-bg svg{position:absolute;right:8%;top:50%;transform:translateY(-50%);width:560px;height:560px;opacity:.95;animation:spin 120s linear infinite}
 @keyframes spin{to{transform:translateY(-50%) rotate(360deg)}}
@@ -169,16 +169,16 @@ nav.main a:hover,nav.main a.active{border-bottom-color:var(--flame);color:var(--
 .step span{font-size:14px;color:var(--muted)}
 
 /* dark section (astrology) */
-.dark{background:var(--neel);color:var(--on-dark)}
-.dark .eyebrow{color:var(--gold)}
-.dark h2{color:#fff}
-.dark .lead{color:var(--on-dark-muted)}
+.dark{background:radial-gradient(circle at 88% 0%,#FCF3E3 0%,var(--haldi-2) 35%,var(--haldi) 100%);color:var(--ink);border-top:1px solid var(--gold-soft);border-bottom:1px solid var(--gold-soft)}
+.dark .eyebrow{color:var(--kumkum)}
+.dark h2{color:var(--ink)}
+.dark .lead{color:var(--body)}
 .topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.topic-card{display:flex;flex-direction:column;gap:10px;padding:26px;border:1px solid var(--neel-3);border-radius:var(--radius);color:var(--on-dark);text-decoration:none;background:var(--neel-2);transition:border-color .2s,background .2s}
-.topic-card:hover{border-color:var(--gold);background:#30448A;color:var(--on-dark)}
-.topic-card svg{color:var(--gold);width:30px;height:30px}
-.topic-card b{font-family:var(--serif);font-size:24px;font-weight:600;color:#fff}
-.topic-card span{font-size:14px;color:var(--on-dark-muted)}
+.topic-card{display:flex;flex-direction:column;gap:10px;padding:26px;border:1px solid var(--gold-soft);border-radius:var(--radius);color:var(--ink);text-decoration:none;background:#FFFBF4;transition:border-color .2s,background .2s,box-shadow .2s,transform .2s}
+.topic-card:hover{border-color:var(--gold);background:#fff;color:var(--ink);box-shadow:var(--shadow);transform:translateY(-2px)}
+.topic-card svg{color:var(--kumkum);width:30px;height:30px}
+.topic-card b{font-family:var(--serif);font-size:24px;font-weight:600;color:var(--ink)}
+.topic-card span{font-size:14px;color:var(--muted)}
 
 /* luxe */
 .luxe{background:var(--kumkum);color:var(--on-dark)}
@@ -258,7 +258,7 @@ label.f input:focus,label.f select:focus,label.f textarea:focus{outline:none;bor
 .split{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:64px;align-items:start}
 .ticks{display:flex;flex-direction:column;gap:14px;margin-top:28px}
 .ticks div{display:flex;gap:12px;align-items:flex-start}
-.ticks svg{color:var(--gold);margin-top:3px}
+.ticks svg{color:var(--kumkum);margin-top:3px}
 .pkg-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .pkg{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px;display:flex;flex-direction:column;gap:12px}
 .pkg.best{border-color:var(--flame);box-shadow:inset 0 0 0 1px var(--flame)}
