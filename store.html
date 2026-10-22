@@ -19,7 +19,7 @@
 <div class="crumbs"><a href="index.html">Home</a> / Divya Store</div>
 <div class="eyebrow" id="heroEyebrow">Divya Store</div>
 <h1 id="heroTitle">Sacred essentials, made pure</h1>
-<p class="lead" id="heroLead">Natural, bamboo-free dhoop made with an A2 cow-dung base — no charcoal, no synthetic fragrance — plus hand-crafted sacred art from DivyAum Luxe.</p>
+<p class="lead" id="heroLead">Natural, bamboo-free dhoop, cones, havan cups and pooja fragrances — made with an A2 cow-dung base, with no charcoal and no synthetic fragrance.</p>
 </div></section>
 
 <section class="sec" style="padding-top:48px"><div class="wrap">
@@ -31,7 +31,6 @@
 <button type="button" class="chip" data-f="havan">Havan Cups</button>
 <button type="button" class="chip" data-f="fragrance">Pooja Fragrance</button>
 <button type="button" class="chip" data-f="combo">Combos</button>
-<button type="button" class="chip" data-f="luxe">DivyAum Luxe</button>
 </div>
 <div style="display:flex;align-items:center;gap:16px">
 <span class="count" id="storeGridCount"></span>
@@ -57,11 +56,7 @@
 <script>
 (function(){
   var grid = document.getElementById("storeGrid");
-  var order = DV.products.slice().sort(function(a,b){
-    var ga = a.cat==="luxe"?1:0, gb = b.cat==="luxe"?1:0;
-    if (ga!==gb) return ga-gb;
-    return (a.best||a.lux||99)-(b.best||b.lux||99);
-  });
+  var order = DV.products.filter(function(p){return p.cat!=="luxe";}).sort(function(a,b){return (a.best||99)-(b.best||99);});
   function render(list){ grid.innerHTML = list.map(DV.card).join(""); }
   render(order);
 
@@ -69,14 +64,6 @@
   if (c) {
     document.querySelectorAll("#storeChips .chip").forEach(function(x){ x.classList.toggle("on", x.dataset.f===c); });
   }
-  if (c === "luxe") {
-    document.body.setAttribute("data-page","luxe");
-    document.getElementById("heroEyebrow").textContent = "DivyAum Luxe";
-    document.getElementById("heroTitle").textContent = "Handcrafted sacred art";
-    document.getElementById("heroLead").textContent = "Hand-painted acrylic canvases and hand-embroidered zardozi on cotton — each piece made by hand and ready to hang. Frames not included.";
-    document.querySelector(".crumbs").innerHTML = '<a href="index.html">Home</a> / <a href="store.html">Divya Store</a> / DivyAum Luxe';
-  }
-
   document.getElementById("sort").addEventListener("change", function(){
     var v = this.value, list = order.slice();
     if (v==="low") list.sort(function(a,b){return a.price-b.price;});

@@ -49,15 +49,15 @@
   ];
 
   DV.poojas = [
-    { name: "Bhat Puja at Mangalnath Temple", place: "Mangalnath Temple, Ujjain", tag: "Mangal Dosha", cat: "dosha", ben: "Vedic ritual on the Swayambhu Shivalinga to pacify Mangal Dosha (Mars defects).", file: "pooja/1786453745508-4df891671ca36351.png" },
-    { name: "Mahamrityunjay 21,000 Jaap", place: "5 Brahmans · Ujjain", tag: "Health", cat: "health", ben: "For recovery from illness, long life and freedom from fear. Often done on birthdays.", file: "pooja/1786606438734-545fa9da878d5567.png" },
-    { name: "Gadkalika Pooja", place: "Gadkalika Mandir, Ujjain", tag: "Career & Studies", cat: "wealth", ben: "At the Shakti Peeth linked to Kalidasa — for success in studies, career and finances.", file: "pooja/1786606522162-2f912130f5d83214.png" },
-    { name: "Rin Mukteshwar Pooja", place: "Ujjain", tag: "Debt Relief", cat: "wealth", ben: "The “yellow puja” of Brihaspati, performed to ease the burden of debt.", file: "pooja/1786606591613-f349a0cc8554b83e.png" },
-    { name: "Kaal Bhairav Pooja", place: "Kaal Bhairav Temple, Ujjain", tag: "Family Peace", cat: "family", ben: "For family peace, gratitude and auspicious new beginnings.", file: "pooja/1786606683093-9e09c2deae86af55.png" },
-    { name: "Maa Baglamukhi Pooja", place: "Ujjain", tag: "Marriage & Success", cat: "family", ben: "For marriage success, leadership and protection from obstacles.", file: "pooja/1786606776020-999990089e9ca2cd.png" },
-    { name: "Har Siddhi Pooja", place: "Shakti Peeth, Ujjain", tag: "Wishes", cat: "health", ben: "A powerful Shakti Peeth puja for health, prosperity and fulfilment of wishes.", file: "pooja/1786606864037-71924c830fe6b91e.png" },
-    { name: "Siddhnath Pooja", place: "Ujjain", tag: "Kaal Sarp Dosh", cat: "dosha", ben: "A rare puja for the removal of Kaal Sarp Dosh and Pitr Dosh.", file: "pooja/1786606946165-bd24ea7c1280b5f0.png" },
-    { name: "Mahamrityunjay 41,000 Jaap", place: "11 Brahmans · Ujjain", tag: "Health", cat: "health", ben: "The extended jaap by 11 Brahmans for serious illness and protection.", file: "pooja/1786608877976-f29aeb67dc0414f7.png" }
+    { name: "Bhat Puja at Mangalnath Temple", place: "Mangalnath Temple", tag: "Mangal Dosha", cat: "dosha", ben: "Vedic ritual on the Swayambhu Shivalinga to pacify Mangal Dosha (Mars defects).", file: "pooja/1786453745508-4df891671ca36351.png" },
+    { name: "Mahamrityunjay 21,000 Jaap", place: "Performed by 5 Brahmans", tag: "Health", cat: "health", ben: "For recovery from illness, long life and freedom from fear. Often done on birthdays.", file: "pooja/1786606438734-545fa9da878d5567.png" },
+    { name: "Gadkalika Pooja", place: "Gadkalika Mandir", tag: "Career & Studies", cat: "wealth", ben: "At the Shakti Peeth linked to Kalidasa — for success in studies, career and finances.", file: "pooja/1786606522162-2f912130f5d83214.png" },
+    { name: "Rin Mukteshwar Pooja", place: "Temple pooja", tag: "Debt Relief", cat: "wealth", ben: "The “yellow puja” of Brihaspati, performed to ease the burden of debt.", file: "pooja/1786606591613-f349a0cc8554b83e.png" },
+    { name: "Kaal Bhairav Pooja", place: "Kaal Bhairav Temple", tag: "Family Peace", cat: "family", ben: "For family peace, gratitude and auspicious new beginnings.", file: "pooja/1786606683093-9e09c2deae86af55.png" },
+    { name: "Maa Baglamukhi Pooja", place: "Shakti pooja", tag: "Marriage & Success", cat: "family", ben: "For marriage success, leadership and protection from obstacles.", file: "pooja/1786606776020-999990089e9ca2cd.png" },
+    { name: "Har Siddhi Pooja", place: "Har Siddhi Shakti Peeth", tag: "Wishes", cat: "health", ben: "A powerful Shakti Peeth puja for health, prosperity and fulfilment of wishes.", file: "pooja/1786606864037-71924c830fe6b91e.png" },
+    { name: "Siddhnath Pooja", place: "Rare temple pooja", tag: "Kaal Sarp Dosh", cat: "dosha", ben: "A rare puja for the removal of Kaal Sarp Dosh and Pitr Dosh.", file: "pooja/1786606946165-bd24ea7c1280b5f0.png" },
+    { name: "Mahamrityunjay 41,000 Jaap", place: "Performed by 11 Brahmans", tag: "Health", cat: "health", ben: "The extended jaap by 11 Brahmans for serious illness and protection.", file: "pooja/1786608877976-f29aeb67dc0414f7.png" }
   ];
 
   /* ---------- small helpers ---------- */
@@ -93,16 +93,16 @@
       '<div class="pj-media"><img loading="lazy" src="' + img(p.file, 828) + '" alt="' + p.name + '"><span class="tag">' + p.tag + "</span></div>" +
       '<div class="pj-body"><div class="pj-meta"><span>' + p.place + "</span><span>60 min</span></div>" +
       '<div class="pj-name">' + p.name + '</div><div class="pj-ben">' + p.ben + "</div>" +
-      '<div class="pj-foot"><div><div class="from">From</div><div class="price">₹2,100</div></div><span class="btn btn-primary btn-sm">Book now</span></div></div></a>';
+      '<div class="pj-foot"><div><div class="price">₹2,100</div><div class="from">per person</div></div><span class="btn btn-primary btn-sm">Book now</span></div></div></a>';
   };
 
   /* ---------- header & footer ---------- */
   var page = document.body.getAttribute("data-page") || "home";
-  var navItems = [["store.html", "Divya Store", "store"], ["pooja.html", "Online Pooja", "pooja"], ["astrology.html", "Astrology", "astrology"], ["store.html?c=luxe", "DivyAum Luxe", "luxe"], ["index.html#gyan", "Sanatan Gyan", "gyan"]];
+  var navItems = [["store.html", "Divya Store", "store"], ["pooja.html", "Online Pooja", "pooja"], ["astrology.html", "Astrology", "astrology"], ["luxe.html", "DivyAum Luxe", "luxe"], ["index.html#gyan", "Sanatan Gyan", "gyan"]];
   var hdr = document.getElementById("site-header");
   if (hdr) {
     hdr.outerHTML =
-      '<div class="announce"><div class="wrap"><span class="hide-sm">Natural, bamboo-free dhoop · Poojas at sacred temples of Ujjain · Prasad delivered worldwide</span><span>Help: <a href="tel:+919755590829">+91 97555 90829</a> · 11am–6pm</span></div></div>' +
+      '<div class="announce"><div class="wrap"><span class="hide-sm">Natural, bamboo-free dhoop · Poojas at sacred temples · Prasad delivered worldwide</span><span>Help: <a href="tel:+919755590829">+91 97555 90829</a> · 11am–6pm</span></div></div>' +
       '<header class="site"><div class="wrap"><a class="logo" href="index.html" aria-label="Divyaum home"><img src="assets/logo.png" alt="Divyaum"></a>' +
       '<nav class="main" id="mainNav" aria-label="Main">' + navItems.map(function (n) { return '<a href="' + n[0] + '"' + (n[2] === page ? ' class="active" aria-current="page"' : "") + ">" + n[1] + "</a>"; }).join("") + "</nav>" +
       '<div class="hdr-actions"><button class="icon-btn" type="button" aria-label="Search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>' +
@@ -115,7 +115,7 @@
     ftr.outerHTML =
       '<footer class="site"><div class="wrap"><div class="f-cols">' +
       '<div class="f-brand"><img src="assets/logo.png" alt="Divyaum"><div class="f-motto">Shraddha · Samarpan · Shakti</div><p>Authentic online pooja, trusted astrology guidance, and sacred essentials delivered with devotion.</p></div>' +
-      '<div class="f-col"><b>Shop & Services</b><a href="store.html">Divya Store</a><a href="store.html?c=luxe">DivyAum Luxe</a><a href="pooja.html">Online Pooja</a><a href="astrology.html">Vedic Astrology</a></div>' +
+      '<div class="f-col"><b>Shop & Services</b><a href="store.html">Divya Store</a><a href="luxe.html">DivyAum Luxe</a><a href="pooja.html">Online Pooja</a><a href="astrology.html">Vedic Astrology</a></div>' +
       '<div class="f-col"><b>Support</b><a href="https://www.divyaum.com/faq">FAQ</a><a href="https://www.divyaum.com/shipping-return-policy">Shipping & Returns</a><a href="https://www.divyaum.com/privacy-policy">Privacy Policy</a><a href="https://www.divyaum.com/terms-conditions">Terms & Conditions</a></div>' +
       '<div class="f-col"><b>Contact</b><span>+91 97555 90829</span><span>11am – 6pm, all days</span><span>hello@divyaum.com</span><span style="display:flex;gap:16px;margin-top:6px"><a href="https://www.instagram.com/_divyaum">Instagram</a><a href="https://www.youtube.com/@Divyaum-1">YouTube</a><a href="https://www.linkedin.com/company/house-of-param-dharam/">LinkedIn</a></span></div>' +
       '</div><div class="f-bottom"><span>© 2026 Divyaum. All rights reserved.</span><span>Design preview — not the live store</span></div></div></footer>' +
@@ -164,23 +164,32 @@
       group._apply = apply;
     });
 
-    /* hero slider */
+    /* hero slider — each progress bar drives the next slide */
     var slider = document.querySelector(".slider");
     if (slider) {
-      var slides = slider.querySelectorAll(".slide"), dots = slider.querySelectorAll(".dot"), i = 0, timer;
+      var slides = slider.querySelectorAll(".slide"), bars = slider.querySelectorAll(".bar"), cur = slider.querySelector(".counter b"), i = 0;
       function go(n) {
-        slides[i].classList.remove("on"); dots[i].classList.remove("on"); slides[i].setAttribute("aria-hidden", "true");
+        slides[i].classList.remove("on"); slides[i].setAttribute("aria-hidden", "true");
         i = (n + slides.length) % slides.length;
-        slides[i].classList.add("on"); dots[i].classList.add("on"); slides[i].setAttribute("aria-hidden", "false");
+        slides[i].classList.add("on"); slides[i].setAttribute("aria-hidden", "false");
+        bars.forEach(function (b, k) { b.classList.remove("on"); b.classList.toggle("done", k < i); });
+        void bars[i].offsetWidth; bars[i].classList.add("on");
+        if (cur) cur.textContent = ("0" + (i + 1)).slice(-2);
       }
-      function play() { clearInterval(timer); timer = setInterval(function () { go(i + 1); }, 5500); }
-      dots.forEach(function (d, k) { d.addEventListener("click", function () { go(k); play(); }); });
-      slider.querySelector(".prev").addEventListener("click", function () { go(i - 1); play(); });
-      slider.querySelector(".next").addEventListener("click", function () { go(i + 1); play(); });
-      slider.addEventListener("mouseenter", function () { clearInterval(timer); });
-      slider.addEventListener("mouseleave", play);
-      play();
+      bars.forEach(function (b, k) {
+        b.addEventListener("click", function () { go(k); });
+        b.querySelector("i").addEventListener("animationend", function () { if (k === i) go(i + 1); });
+      });
+      slider.querySelector(".prev").addEventListener("click", function () { go(i - 1); });
+      slider.querySelector(".next").addEventListener("click", function () { go(i + 1); });
+      go(0);
     }
+
+    /* testimonial carousel arrows */
+    var track = document.querySelector(".rv-track");
+    if (track) document.querySelectorAll("[data-rv]").forEach(function (b) {
+      b.addEventListener("click", function () { track.scrollBy({ left: (b.dataset.rv === "next" ? 1 : -1) * (track.firstElementChild.offsetWidth + 24), behavior: "smooth" }); });
+    });
 
     /* astrology topic buttons */
     document.querySelectorAll(".topics").forEach(function (g) {

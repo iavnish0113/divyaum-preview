@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>DivyAum Luxe — Divyaum</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css">
+</head>
+<body data-page="luxe">
+<div id="site-header"></div>
+
+<main>
+<section class="page-hero luxe" style="border:none"><div class="wrap">
+<div class="crumbs" style="color:var(--on-dark-muted)"><a href="index.html" style="color:var(--on-dark-muted)">Home</a> / DivyAum Luxe</div>
+<div class="eyebrow">DivyAum Luxe</div>
+<h1 style="color:#fff;font-weight:500">Handcrafted sacred art</h1>
+<p class="lead">Hand-painted acrylic canvases and hand-embroidered zardozi on cotton — each piece made by hand by artisans, and ready to hang. Frames not included.</p>
+</div></section>
+
+<section class="sec luxe" style="padding-top:24px"><div class="wrap">
+<div class="toolbar">
+<div class="chips" data-target="storeGrid" id="storeChips" data-key="sub" data-noun="piece">
+<button type="button" class="chip on" data-f="all">All</button>
+<button type="button" class="chip" data-f="painting">Paintings</button>
+<button type="button" class="chip" data-f="zardozi">Zardozi Art</button>
+<button type="button" class="chip" data-f="decor">Wall Décor</button>
+</div>
+<div style="display:flex;align-items:center;gap:16px">
+<span class="count" id="storeGridCount" style="color:var(--on-dark-muted)"></span>
+<label style="font-size:14px;color:var(--on-dark-muted);display:flex;align-items:center;gap:8px">Sort
+<select id="sort"><option value="featured">Featured</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></label>
+</div>
+</div>
+<div class="grid grid-4" id="storeGrid"></div>
+</div></section>
+
+<section class="sec-tight" style="background:#0F0C0A;border-top:1px solid #2A221D;color:var(--on-dark-muted)"><div class="wrap" style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;font-size:15px">
+<span>Hand-painted &amp; hand-embroidered</span><span>Ready to hang</span><span>Securely packed &amp; insured shipping</span><span>Help choosing? <a href="https://wa.me/919755590829" style="color:var(--gold)">WhatsApp us</a></span>
+</div></section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/site.js"></script>
+<script>
+(function(){
+  var grid = document.getElementById("storeGrid");
+  var order = DV.products.filter(function(p){return p.cat==="luxe";}).sort(function(a,b){return (a.lux||99)-(b.lux||99);});
+  function render(list){ grid.innerHTML = list.map(DV.card).join(""); }
+  render(order);
+
+  var c = new URLSearchParams(location.search).get("c");
+  if (c) {
+    document.querySelectorAll("#storeChips .chip").forEach(function(x){ x.classList.toggle("on", x.dataset.f===c); });
+  }
+  document.getElementById("sort").addEventListener("change", function(){
+    var v = this.value, list = order.slice();
+    if (v==="low") list.sort(function(a,b){return a.price-b.price;});
+    if (v==="high") list.sort(function(a,b){return b.price-a.price;});
+    render(list);
+    var on = document.querySelector("#storeChips .chip.on");
+    document.getElementById("storeChips")._apply(on ? on.dataset.f : "all");
+  });
+})();
+</script>
+</body>
+</html>
