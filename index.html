@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=8">
+<link rel="stylesheet" href="css/site.css?v=9">
 </head>
 <body data-page="home">
 <div id="site-header"></div>
@@ -51,7 +51,7 @@
 </div></div>
 </div>
 
-<div class="slide" aria-hidden="true">
+<div class="slide no-scrim" aria-hidden="true">
 <div class="slide-bg zodiac-bg">
 <svg viewBox="0 0 400 400" fill="none" stroke="#C29A6B" stroke-width=".8" aria-hidden="true">
 <circle cx="200" cy="200" r="196" opacity=".25"/><circle cx="200" cy="200" r="178" opacity=".6"/><circle cx="200" cy="200" r="140" opacity=".45"/><circle cx="200" cy="200" r="96" opacity=".7"/><circle cx="200" cy="200" r="44"/>
@@ -146,6 +146,19 @@
 </div>
 </div></section>
 
+<!-- DIVYAUM SHUBH -->
+<section class="sec shubh-sec" id="shubh"><div class="wrap">
+<div class="sec-head">
+<div><div class="eyebrow">DivyAum Shubh</div><h2>Sacred things to wear and keep close</h2><p class="lead">Rudraksha, natural stone bracelets and brass murtis — chosen with the same care as everything we make.</p></div>
+<a href="shubh.html" class="text-link">Explore DivyAum Shubh →</a>
+</div>
+<div class="shubh-tiles">
+<a class="shubh-tile" href="shubh.html?c=rudraksha"><div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4c-2.2 3-2.2 13 0 16M12 4c2.2 3 2.2 13 0 16M4.5 9.5c4.5 1.2 10.5 1.2 15 0M4.5 14.5c4.5-1.2 10.5-1.2 15 0"/></svg></div><b>Rudraksha</b><span>Bracelets, japa malas and pendants</span><span class="go">Explore rudraksha →</span></a>
+<a class="shubh-tile" href="shubh.html?c=stone"><div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="4.5" r="2"/><circle cx="17.3" cy="6.7" r="2"/><circle cx="19.5" cy="12" r="2"/><circle cx="17.3" cy="17.3" r="2"/><circle cx="12" cy="19.5" r="2"/><circle cx="6.7" cy="17.3" r="2"/><circle cx="4.5" cy="12" r="2"/><circle cx="6.7" cy="6.7" r="2"/></svg></div><b>Stone Bracelets</b><span>Tiger eye, rose quartz, 7 chakra and more</span><span class="go">Explore bracelets →</span></a>
+<a class="shubh-tile" href="shubh.html?c=murti"><div class="art"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><path d="M8 20v-5.5C8 11 10 8.5 12 8.5s4 2.5 4 6V20"/><path d="M8.5 12.5L5.5 10M15.5 12.5l3-2.5"/><path d="M4 21h16"/></svg></div><b>Murtis</b><span>Brass murtis for your pooja ghar</span><span class="go">Explore murtis →</span></a>
+</div>
+</div></section>
+
 <!-- DIVYAUM LUXE -->
 <section class="sec luxe" id="luxe"><div class="wrap">
 <div class="sec-head">
@@ -194,7 +207,7 @@
 </main>
 
 <div id="site-footer"></div>
-<script src="js/site.js?v=8"></script>
+<script src="js/site.js?v=9"></script>
 <script>
 document.querySelectorAll("img[data-file]").forEach(function(i){ i.src = DV.img(i.dataset.file, i.dataset.w || 1080); });
 document.getElementById("homeStore").innerHTML = DV.products.filter(function(p){return p.cat!=="luxe";}).sort(function(a,b){return (a.best||99)-(b.best||99);}).map(DV.card).join("");

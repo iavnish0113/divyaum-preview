@@ -48,6 +48,26 @@
     P("plates", "Decorative Wall Plates, Set of 3", "plate", "8 in diameter · blue & white", 7500, 10000, "luxe", "1786193290955-85b1c0b2de84ff91.png", { sub2: "decor" })
   ];
 
+  /* DivyAum Shubh — proposed range; products, photos and prices to be added */
+  DV.shubh = [
+    { name: "5 Mukhi Rudraksha Bracelet", kind: "rudraksha", cat: "rudraksha", sub: "Natural rudraksha beads" },
+    { name: "Rudraksha Japa Mala", kind: "rudraksha", cat: "rudraksha", sub: "108 + 1 beads, for japa" },
+    { name: "Rudraksha Pendant", kind: "rudraksha", cat: "rudraksha", sub: "Single bead on a thread" },
+    { name: "Tiger Eye Bracelet", kind: "bracelet", cat: "stone", sub: "Natural stone beads" },
+    { name: "Rose Quartz Bracelet", kind: "bracelet", cat: "stone", sub: "Natural stone beads" },
+    { name: "7 Chakra Bracelet", kind: "bracelet", cat: "stone", sub: "Seven natural stones" },
+    { name: "Brass Ganesha Murti", kind: "murti", cat: "murti", sub: "Solid brass" },
+    { name: "Brass Laddu Gopal Murti", kind: "murti", cat: "murti", sub: "Solid brass" },
+    { name: "Brass Shivling with Nandi", kind: "murti", cat: "murti", sub: "Solid brass" }
+  ];
+  DV.shubhCard = function (p) {
+    var wa = "https://wa.me/919755590829?text=" + encodeURIComponent("Namaste, please notify me when the " + p.name + " is available.");
+    return '<div class="card" data-cat="' + p.cat + '"><div class="card-media soon-media">' + DV.icon(p.kind) + '<span class="tag">Coming soon</span><span class="soon-note">Photo coming soon</span></div>' +
+      '<div class="card-body"><span class="kind">' + DV.icon(p.kind) + KIND[p.kind] + '</span><div class="card-title">' + p.name + '</div><div class="card-sub">' + p.sub + '</div>' +
+      '<div class="prices"><span class="price">₹[PRICE]</span></div>' +
+      '<a class="btn btn-outline btn-sm" style="margin-top:8px;align-self:flex-start" href="' + wa + '" target="_blank" rel="noopener">Notify me</a></div></div>';
+  };
+
   DV.poojas = [
     { slug: "bhat-puja-at-mangalnath-temple", dur: 180, name: "Bhat Puja at Mangalnath Temple", place: "Mangalnath Temple", tag: "Mangal Dosha", cat: "dosha", ben: "Vedic ritual on the Swayambhu Shivalinga to pacify Mangal Dosha (Mars defects).", file: "pooja/1786453745508-4df891671ca36351.png" },
     { slug: "mahamrityunjay-21-000-jaap", dur: 180, name: "Mahamrityunjay 21,000 Jaap", place: "Performed by 5 Brahmans", tag: "Health", cat: "health", ben: "For recovery from illness, long life and freedom from fear. Often done on birthdays.", file: "pooja/1786606438734-545fa9da878d5567.png" },
@@ -69,9 +89,12 @@
     box: '<path d="M3 8l9-4 9 4-9 4z"/><path d="M3 8v8l9 4 9-4V8"/><path d="M12 12v8"/>',
     painting: '<rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="9" r="1.5"/>',
     zardozi: '<circle cx="12" cy="12" r="8"/><path d="M12 4v16M4 12h16M6.3 6.3l11.4 11.4M17.7 6.3L6.3 17.7"/>',
-    plate: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/>'
+    plate: '<circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/>',
+    rudraksha: '<circle cx="12" cy="12" r="8"/><path d="M12 4c-2.2 3-2.2 13 0 16M12 4c2.2 3 2.2 13 0 16M4.5 9.5c4.5 1.2 10.5 1.2 15 0M4.5 14.5c4.5-1.2 10.5-1.2 15 0"/>',
+    bracelet: '<circle cx="12" cy="4.5" r="2"/><circle cx="17.3" cy="6.7" r="2"/><circle cx="19.5" cy="12" r="2"/><circle cx="17.3" cy="17.3" r="2"/><circle cx="12" cy="19.5" r="2"/><circle cx="6.7" cy="17.3" r="2"/><circle cx="4.5" cy="12" r="2"/><circle cx="6.7" cy="6.7" r="2"/>',
+    murti: '<circle cx="12" cy="5" r="2.2"/><path d="M8 20v-5.5C8 11 10 8.5 12 8.5s4 2.5 4 6V20"/><path d="M8.5 12.5L5.5 10M15.5 12.5l3-2.5"/><path d="M4 21h16"/>'
   };
-  var KIND = { stick: "Dhoop Sticks", cone: "Dhoop Cones", cup: "Havan Cups", bottle: "Pooja Fragrance", box: "Combo Set", painting: "Painting", zardozi: "Zardozi Art", plate: "Wall Décor" };
+  var KIND = { rudraksha: "Rudraksha", bracelet: "Stone Bracelet", murti: "Murti", stick: "Dhoop Sticks", cone: "Dhoop Cones", cup: "Havan Cups", bottle: "Pooja Fragrance", box: "Combo Set", painting: "Painting", zardozi: "Zardozi Art", plate: "Wall Décor" };
   DV.icon = function (k) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[k] || "") + "</svg>"; };
   DV.inr = function (n) { return "₹" + n.toLocaleString("en-IN"); };
   DV.dur = function (m) { return m < 60 ? m + " min" : (m % 60 ? (m / 60).toFixed(1) : m / 60) + (m === 60 ? " hour" : " hours"); };
@@ -111,7 +134,7 @@
 
   /* ---------- header & footer ---------- */
   var page = document.body.getAttribute("data-page") || "home";
-  var navItems = [["store.html", "Divya Store", "store"], ["pooja.html", "Online Pooja", "pooja"], ["astrology.html", "Astrology", "astrology"], ["luxe.html", "DivyAum Luxe", "luxe"], ["index.html#gyan", "Sanatan Gyan", "gyan"]];
+  var navItems = [["store.html", "Divya Store", "store"], ["pooja.html", "Online Pooja", "pooja"], ["astrology.html", "Astrology", "astrology"], ["shubh.html", "DivyAum Shubh", "shubh"], ["luxe.html", "DivyAum Luxe", "luxe"], ["about.html", "About Us", "about"]];
   var hdr = document.getElementById("site-header");
   if (hdr) {
     hdr.outerHTML =
@@ -128,7 +151,7 @@
     ftr.outerHTML =
       '<footer class="site"><div class="wrap"><div class="f-cols">' +
       '<div class="f-brand"><img src="assets/logo.png" alt="Divyaum"><div class="f-motto">Shraddha · Samarpan · Shakti</div><p>Authentic online pooja, trusted astrology guidance, and sacred essentials delivered with devotion.</p></div>' +
-      '<div class="f-col"><b>Shop & Services</b><a href="store.html">Divya Store</a><a href="luxe.html">DivyAum Luxe</a><a href="pooja.html">Online Pooja</a><a href="astrology.html">Vedic Astrology</a></div>' +
+      '<div class="f-col"><b>Shop & Services</b><a href="store.html">Divya Store</a><a href="shubh.html">DivyAum Shubh</a><a href="luxe.html">DivyAum Luxe</a><a href="pooja.html">Online Pooja</a><a href="astrology.html">Vedic Astrology</a><a href="about.html">About Us</a></div>' +
       '<div class="f-col"><b>Support</b><a href="https://www.divyaum.com/faq">FAQ</a><a href="https://www.divyaum.com/shipping-return-policy">Shipping & Returns</a><a href="https://www.divyaum.com/privacy-policy">Privacy Policy</a><a href="https://www.divyaum.com/terms-conditions">Terms & Conditions</a></div>' +
       '<div class="f-col"><b>Contact</b><span>+91 97555 90829</span><span>11am – 6pm, all days</span><span>hello@divyaum.com</span><span style="display:flex;gap:16px;margin-top:6px"><a href="https://www.instagram.com/_divyaum">Instagram</a><a href="https://www.youtube.com/@Divyaum-1">YouTube</a><a href="https://www.linkedin.com/company/house-of-param-dharam/">LinkedIn</a></span></div>' +
       '</div><div class="f-bottom"><span>© 2026 Divyaum. All rights reserved.</span><span>Design preview — not the live store</span></div></div></footer>' +
