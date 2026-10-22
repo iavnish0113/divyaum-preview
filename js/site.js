@@ -247,7 +247,7 @@
     var sov = document.getElementById("searchOv"), sin = document.getElementById("searchIn"), sres = document.getElementById("searchRes");
     var index = [];
     DV.products.forEach(function (p) { index.push({ g: p.cat === "luxe" ? "DivyAum Luxe" : "DivyAum Pure", t: p.name, s: p.sub, k: (p.name + " " + p.sub + " " + p.kind + " " + p.cat).toLowerCase(), img: img(p.file, 256), price: DV.inr(p.price), href: "product.html?id=" + p.id }); });
-    (DV.aura || []).forEach(function (p) { index.push({ g: "DivyAum Aura", t: p.name, s: p.sub + " · coming soon", k: (p.name + " " + p.sub + " " + p.cat + " bracelet rudraksha murti").toLowerCase(), img: "assets/aura/" + p.img + ".webp", price: "", href: "aura.html?c=" + p.cat }); });
+    (DV.aura || []).forEach(function (p) { index.push({ g: "DivyAum Aura", t: p.name, s: p.sub + " · coming soon", k: (p.name + " " + p.sub + " " + p.cat + " " + p.kind).toLowerCase(), img: "assets/aura/" + p.img + ".webp", price: "", href: "aura.html?c=" + p.cat }); });
     DV.poojas.forEach(function (p) { index.push({ g: "Online Pooja", t: p.name, s: p.place + " · ₹2,100", k: (p.name + " " + p.place + " " + p.tag + " " + p.ben + " pooja puja").toLowerCase(), img: img(p.file, 256), price: "", href: "pooja-detail.html?p=" + p.slug }); });
     [["Vedic Astrology", "Career, marriage, health, kundli, vastu", "astrology.html", "astrology kundli horoscope career marriage jyotish vastu"], ["About Us", "Our story, mission and founders", "about.html", "about founders mission story"], ["Track your order", "See where your order is", "track.html", "track order delivery status shipping"]].forEach(function (x) { index.push({ g: "Pages", t: x[0], s: x[1], k: (x[0] + " " + x[3]).toLowerCase(), href: x[2] }); });
     function sitem(r) { return '<a class="sr" href="' + r.href + '">' + (r.img ? '<img src="' + r.img + '" alt="">' : '<span class="sr-ic">' + DV.icon("box") + "</span>") + "<span><b>" + r.t + "</b><span>" + r.s + "</span></span>" + (r.price ? '<span class="sr-price">' + r.price + "</span>" : "") + "</a>"; }
@@ -361,6 +361,7 @@
         bars.forEach(function (b, k) { b.classList.remove("on"); b.classList.toggle("done", k < i); });
         void bars[i].offsetWidth; bars[i].classList.add("on");
         if (cur) cur.textContent = ("0" + (i + 1)).slice(-2);
+        slider.classList.toggle("is-light", slides[i].classList.contains("light"));
       }
       bars.forEach(function (b, k) {
         b.addEventListener("click", function () { go(k); });

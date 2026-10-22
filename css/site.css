@@ -597,3 +597,44 @@ a.card-title:hover{color:var(--flame)}
   .fest{min-width:0;flex:1 1 30%}
   .announce .wrap{justify-content:center;text-align:center}
 }
+.slider.is-light .counter span{color:var(--muted)}
+.slider.is-light .bar{background:rgba(64,25,26,.18)}
+.slider.is-light .bar i{background:var(--kumkum)}
+.slider.is-light .arrow{border-color:rgba(64,25,26,.3);color:var(--ink);background:rgba(255,255,255,.6)}
+.slider.is-light .arrow:hover{background:var(--kumkum);color:#fff;border-color:var(--kumkum)}
+@media (max-width:960px){
+  .slide.light::after{background:linear-gradient(0deg,rgba(252,244,230,.98) 0%,rgba(252,244,230,.92) 55%,rgba(252,244,230,.4) 78%,rgba(252,244,230,0) 92%)}
+}
+@media (max-width:640px){
+  .slider{height:600px}
+  .arrows{display:none}
+  .slider-ui{bottom:22px}
+  .slide-inner{padding-bottom:64px}
+  .slide-ctas .btn-lg{height:50px;padding:0 22px;font-size:15px}
+  .grid-3:has(.pj){grid-template-columns:1fr}
+  .sec-head{margin-bottom:28px}
+  .sec-head .btn{width:100%}
+  .countdown{font-size:13px}
+  .pc-title{padding-right:14px}
+  .trustbar .wrap{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .trustbar div{font-size:13px}
+  .card-title{font-size:15px}
+  .prices{flex-wrap:wrap;gap:4px 8px}
+  .price{font-size:16px}
+  .help .btn{width:100%}
+}
+@media (max-width:640px){
+  .topic-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .topic-card{padding:16px;gap:6px}
+  .topic-card svg{width:24px;height:24px}
+  .topic-card b{font-size:19px;line-height:1.15}
+  .topic-card span{font-size:12px}
+  .aura-tile{padding:16px}
+  .aura-tile b{font-size:24px}
+  .pdp-info h1{font-size:32px}
+  .buy{flex-wrap:wrap}
+  .book-card{padding:20px}
+  .book-card h1{font-size:32px!important}
+  .ab-hero h1{font-size:40px}
+  .eight div{padding:20px 16px}
+}
