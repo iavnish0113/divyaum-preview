@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/site.css?v=9">
+<link rel="stylesheet" href="css/site.css?v=10">
 </head>
 <body data-page="store">
 <div id="site-header"></div>
@@ -24,14 +24,14 @@
 </div></section>
 
 <section class="sec" style="background:#fff;border-top:1px solid var(--line)"><div class="wrap">
-<div class="sec-head"><div><div class="eyebrow">You may also like</div><h2 id="alsoTitle">More from Divya Store</h2></div><a href="store.html" class="text-link" id="alsoLink">Shop all →</a></div>
+<div class="sec-head"><div><div class="eyebrow">You may also like</div><h2 id="alsoTitle">More from DivyAum Pure</h2></div><a href="store.html" class="text-link" id="alsoLink">Shop all →</a></div>
 <div class="grid grid-4" id="also"></div>
 </div></section>
 </main>
 
 <div id="site-footer"></div>
-<script src="js/site.js?v=9"></script>
-<script src="js/details.js?v=9"></script>
+<script src="js/site.js?v=10"></script>
+<script src="js/details.js?v=10"></script>
 <script>
 (function(){
   var id = new URLSearchParams(location.search).get("id") || "sampoorna";
@@ -39,7 +39,7 @@
   var lux = p.cat === "luxe";
   document.title = p.name + " — Divyaum";
   if (lux) document.querySelectorAll("nav.main a").forEach(function(a){ var on = a.getAttribute("href") === "luxe.html"; a.classList.toggle("active", on); if (on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
-  document.getElementById("crumbs").innerHTML = '<a href="index.html">Home</a> / <a href="' + (lux ? "luxe.html" : "store.html") + '">' + (lux ? "DivyAum Luxe" : "Divya Store") + "</a> / " + p.name;
+  document.getElementById("crumbs").innerHTML = '<a href="index.html">Home</a> / Divya Store / <a href="' + (lux ? "luxe.html" : "store.html") + '">' + (lux ? "DivyAum Luxe" : "DivyAum Pure") + "</a> / " + p.name;
 
   /* gallery */
   var imgs = [p.file].concat((d.g || []).map(function(f){ return "products/" + f; }));

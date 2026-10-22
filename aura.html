@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>DivyAum Aura — Rudraksha, Stone Bracelets &amp; Murtis</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=10">
+</head>
+<body data-page="aura">
+<div id="site-header"></div>
+
+<main>
+<section class="page-hero aura-sec" style="border-top:none"><div class="wrap">
+<div class="crumbs"><a href="index.html">Home</a> / <a href="store.html">Divya Store</a> / DivyAum Aura</div>
+<div class="eyebrow">DivyAum Aura</div>
+<h1>Sacred things to wear and keep close</h1>
+<p class="lead">Rudraksha bracelets and malas, natural stone bracelets and brass murtis — for your daily practice, your pooja ghar, and as gifts that carry a blessing.</p>
+</div></section>
+
+<section class="sec" style="padding-top:48px"><div class="wrap">
+<div class="toolbar">
+<div class="chips" data-target="auraGrid" id="auraChips" data-noun="item">
+<button type="button" class="chip on" data-f="all">All</button>
+<button type="button" class="chip" data-f="rudraksha">Rudraksha</button>
+<button type="button" class="chip" data-f="stone">Stone Bracelets</button>
+<button type="button" class="chip" data-f="murti">Murtis</button>
+</div>
+<span class="count" id="auraGridCount"></span>
+</div>
+<div class="grid grid-3" id="auraGrid"></div>
+</div></section>
+
+<section class="sec-tight"><div class="wrap">
+<div class="help">
+<div><h2>Launching soon</h2><p>Tell us what you’d like to see first — a particular mukhi, stone or murti — and we’ll let you know on WhatsApp when it arrives.</p></div>
+<a href="https://wa.me/919755590829?text=Namaste%2C%20please%20notify%20me%20when%20DivyAum%20Aura%20launches." class="btn btn-dark btn-lg" target="_blank" rel="noopener">Notify me on WhatsApp</a>
+</div>
+</div></section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/site.js?v=10"></script>
+<script>
+document.getElementById("auraGrid").innerHTML = DV.aura.map(DV.auraCard).join("");
+var c = new URLSearchParams(location.search).get("c");
+if (c) document.querySelectorAll("#auraChips .chip").forEach(function(x){ x.classList.toggle("on", x.dataset.f === c); });
+</script>
+</body>
+</html>

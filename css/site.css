@@ -447,18 +447,35 @@ a.card-title:hover{color:var(--flame)}
   .badges,.ben-grid{grid-template-columns:1fr}
 }
 
-/* DivyAum Shubh */
+/* DivyAum Aura */
 .soon-media{display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 50% 40%,#FFFFFF 0%,#F3E7D3 70%)!important}
 .soon-media>svg{width:38%;height:38%;color:var(--gold-deep);stroke-width:1}
 .soon-note{position:absolute;bottom:14px;left:0;right:0;text-align:center;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.shubh-sec{background:linear-gradient(180deg,#FFF8EE 0%,#F6EAD6 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.shubh-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
-.shubh-tile{position:relative;display:flex;flex-direction:column;gap:12px;padding:36px 32px 32px;border-radius:20px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
-.shubh-tile:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--gold);color:var(--ink)}
-.shubh-tile .art{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#FFF7EA 0%,#F3E2C6 100%);display:flex;align-items:center;justify-content:center;margin-bottom:8px;border:1px solid var(--gold-soft)}
-.shubh-tile .art svg{width:64px;height:64px;color:var(--kumkum);stroke-width:1}
-.shubh-tile b{font-family:var(--serif);font-size:30px;font-weight:600;line-height:1.1}
-.shubh-tile span{color:var(--muted);font-size:15px}
-.shubh-tile .go{margin-top:8px;font-weight:500;color:var(--flame);font-size:15px}
-.shubh-tile::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;border:1px solid var(--gold-soft);opacity:.6}
-@media (max-width:960px){.shubh-tiles{grid-template-columns:1fr}}
+.aura-sec{background:linear-gradient(180deg,#FFF8EE 0%,#F6EAD6 100%);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.aura-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.aura-tile{position:relative;display:flex;flex-direction:column;gap:12px;padding:36px 32px 32px;border-radius:20px;background:#fff;border:1px solid var(--line);text-decoration:none;color:var(--ink);overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+.aura-tile:hover{transform:translateY(-4px);box-shadow:var(--shadow);border-color:var(--gold);color:var(--ink)}
+.aura-tile .art{width:120px;height:120px;border-radius:50%;background:radial-gradient(circle,#FFF7EA 0%,#F3E2C6 100%);display:flex;align-items:center;justify-content:center;margin-bottom:8px;border:1px solid var(--gold-soft)}
+.aura-tile .art svg{width:64px;height:64px;color:var(--kumkum);stroke-width:1}
+.aura-tile b{font-family:var(--serif);font-size:30px;font-weight:600;line-height:1.1}
+.aura-tile span{color:var(--muted);font-size:15px}
+.aura-tile .go{margin-top:8px;font-weight:500;color:var(--flame);font-size:15px}
+.aura-tile::after{content:"";position:absolute;right:-40px;top:-40px;width:160px;height:160px;border-radius:50%;border:1px solid var(--gold-soft);opacity:.6}
+@media (max-width:960px){.aura-tiles{grid-template-columns:1fr}}
+
+/* Divya Store dropdown */
+.has-menu{position:relative;display:flex;align-items:center}
+.has-menu>a{display:inline-flex;align-items:center;gap:6px}
+.menu{position:absolute;top:100%;left:50%;transform:translate(-50%,8px);min-width:300px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);padding:10px;display:flex;flex-direction:column;opacity:0;visibility:hidden;transition:.2s;z-index:60}
+.has-menu:hover .menu,.has-menu:focus-within .menu{opacity:1;visibility:visible;transform:translate(-50%,4px)}
+.menu a{display:flex;flex-direction:column;padding:12px 14px;border-radius:10px;border:none!important;text-decoration:none}
+.menu a:hover{background:var(--ivory)}
+.menu b{font-family:var(--serif);font-size:20px;font-weight:600;color:var(--kumkum)}
+.menu span{font-size:13px;color:var(--muted)}
+.sample{position:absolute;right:12px;bottom:12px;padding:3px 9px;border-radius:999px;background:rgba(255,255,255,.85);font-size:11px;letter-spacing:.06em;color:var(--muted)}
+.aura-tile-img{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:14px;margin-bottom:6px}
+@media (max-width:960px){
+  .has-menu{flex-direction:column;align-items:stretch}
+  .menu{position:static;transform:none;opacity:1;visibility:visible;box-shadow:none;border:none;padding:0 0 8px 12px;min-width:0}
+  .menu a{padding:8px 0}
+}

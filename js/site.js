@@ -48,21 +48,21 @@
     P("plates", "Decorative Wall Plates, Set of 3", "plate", "8 in diameter · blue & white", 7500, 10000, "luxe", "1786193290955-85b1c0b2de84ff91.png", { sub2: "decor" })
   ];
 
-  /* DivyAum Shubh — proposed range; products, photos and prices to be added */
-  DV.shubh = [
-    { name: "5 Mukhi Rudraksha Bracelet", kind: "rudraksha", cat: "rudraksha", sub: "Natural rudraksha beads" },
-    { name: "Rudraksha Japa Mala", kind: "rudraksha", cat: "rudraksha", sub: "108 + 1 beads, for japa" },
-    { name: "Rudraksha Pendant", kind: "rudraksha", cat: "rudraksha", sub: "Single bead on a thread" },
-    { name: "Tiger Eye Bracelet", kind: "bracelet", cat: "stone", sub: "Natural stone beads" },
-    { name: "Rose Quartz Bracelet", kind: "bracelet", cat: "stone", sub: "Natural stone beads" },
-    { name: "7 Chakra Bracelet", kind: "bracelet", cat: "stone", sub: "Seven natural stones" },
-    { name: "Brass Ganesha Murti", kind: "murti", cat: "murti", sub: "Solid brass" },
-    { name: "Brass Laddu Gopal Murti", kind: "murti", cat: "murti", sub: "Solid brass" },
-    { name: "Brass Shivling with Nandi", kind: "murti", cat: "murti", sub: "Solid brass" }
+  /* DivyAum Aura — proposed range; sample images (AI-generated), prices to be added */
+  DV.aura = [
+    { name: "5 Mukhi Rudraksha Bracelet", kind: "rudraksha", cat: "rudraksha", sub: "Natural rudraksha beads", img: "rudraksha-bracelet" },
+    { name: "Rudraksha Japa Mala", kind: "rudraksha", cat: "rudraksha", sub: "108 + 1 beads, for japa", img: "rudraksha-mala" },
+    { name: "Rudraksha Pendant", kind: "rudraksha", cat: "rudraksha", sub: "Single bead on a red thread", img: "rudraksha-pendant" },
+    { name: "Tiger Eye Bracelet", kind: "bracelet", cat: "stone", sub: "Natural stone beads", img: "tiger-eye" },
+    { name: "Rose Quartz Bracelet", kind: "bracelet", cat: "stone", sub: "Natural stone beads", img: "rose-quartz" },
+    { name: "7 Chakra Bracelet", kind: "bracelet", cat: "stone", sub: "Seven natural stones", img: "seven-chakra" },
+    { name: "Brass Ganesha Murti", kind: "murti", cat: "murti", sub: "Solid brass", img: "ganesha-murti" },
+    { name: "Brass Laddu Gopal Murti", kind: "murti", cat: "murti", sub: "Solid brass", img: "laddu-gopal" },
+    { name: "Brass Shivling with Nandi", kind: "murti", cat: "murti", sub: "Solid brass", img: "shivling-nandi" }
   ];
-  DV.shubhCard = function (p) {
+  DV.auraCard = function (p) {
     var wa = "https://wa.me/919755590829?text=" + encodeURIComponent("Namaste, please notify me when the " + p.name + " is available.");
-    return '<div class="card" data-cat="' + p.cat + '"><div class="card-media soon-media">' + DV.icon(p.kind) + '<span class="tag">Coming soon</span><span class="soon-note">Photo coming soon</span></div>' +
+    return '<div class="card" data-cat="' + p.cat + '"><div class="card-media"><img loading="lazy" src="assets/aura/' + p.img + '.webp" alt="' + p.name + '"><span class="tag">Coming soon</span><span class="sample">Sample image</span></div>' +
       '<div class="card-body"><span class="kind">' + DV.icon(p.kind) + KIND[p.kind] + '</span><div class="card-title">' + p.name + '</div><div class="card-sub">' + p.sub + '</div>' +
       '<div class="prices"><span class="price">₹[PRICE]</span></div>' +
       '<a class="btn btn-outline btn-sm" style="margin-top:8px;align-self:flex-start" href="' + wa + '" target="_blank" rel="noopener">Notify me</a></div></div>';
@@ -134,13 +134,16 @@
 
   /* ---------- header & footer ---------- */
   var page = document.body.getAttribute("data-page") || "home";
-  var navItems = [["store.html", "Divya Store", "store"], ["pooja.html", "Online Pooja", "pooja"], ["astrology.html", "Astrology", "astrology"], ["shubh.html", "DivyAum Shubh", "shubh"], ["luxe.html", "DivyAum Luxe", "luxe"], ["about.html", "About Us", "about"]];
+  var navItems = [["pooja.html", "Online Pooja", "pooja"], ["astrology.html", "Astrology", "astrology"], ["about.html", "About Us", "about"]];
   var hdr = document.getElementById("site-header");
   if (hdr) {
     hdr.outerHTML =
       '<div class="announce"><div class="wrap"><span class="hide-sm">Free delivery on orders above ₹500 within India · Natural, bamboo-free dhoop · Prasad delivered worldwide</span><span>Help: <a href="tel:+919755590829">+91 97555 90829</a> · 11am–6pm</span></div></div>' +
       '<header class="site"><div class="wrap"><a class="logo" href="index.html" aria-label="Divyaum home"><img src="assets/logo.png" alt="Divyaum"></a>' +
-      '<nav class="main" id="mainNav" aria-label="Main">' + navItems.map(function (n) { return '<a href="' + n[0] + '"' + (n[2] === page ? ' class="active" aria-current="page"' : "") + ">" + n[1] + "</a>"; }).join("") + "</nav>" +
+      '<nav class="main" id="mainNav" aria-label="Main">' +
+      '<div class="has-menu"><a href="store.html" class="' + (["store", "aura", "luxe"].indexOf(page) > -1 ? "active" : "") + '" aria-haspopup="true">Divya Store <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>' +
+      '<div class="menu"><a href="store.html"><b>DivyAum Pure</b><span>Dhoop, havan cups &amp; pooja essentials</span></a><a href="aura.html"><b>DivyAum Aura</b><span>Rudraksha, stone bracelets &amp; murtis</span></a><a href="luxe.html"><b>DivyAum Luxe</b><span>Hand-painted &amp; zardozi sacred art</span></a></div></div>' +
+      navItems.map(function (n) { return '<a href="' + n[0] + '"' + (n[2] === page ? ' class="active" aria-current="page"' : "") + ">" + n[1] + "</a>"; }).join("") + "</nav>" +
       '<div class="hdr-actions"><button class="icon-btn" type="button" aria-label="Search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>' +
       '<button class="icon-btn" type="button" aria-label="Open cart" id="cartBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cart-count" id="cartCount">0</span></button>' +
       '<a href="#" class="btn btn-dark btn-sm">Login</a>' +
@@ -151,7 +154,7 @@
     ftr.outerHTML =
       '<footer class="site"><div class="wrap"><div class="f-cols">' +
       '<div class="f-brand"><img src="assets/logo.png" alt="Divyaum"><div class="f-motto">Shraddha · Samarpan · Shakti</div><p>Authentic online pooja, trusted astrology guidance, and sacred essentials delivered with devotion.</p></div>' +
-      '<div class="f-col"><b>Shop & Services</b><a href="store.html">Divya Store</a><a href="shubh.html">DivyAum Shubh</a><a href="luxe.html">DivyAum Luxe</a><a href="pooja.html">Online Pooja</a><a href="astrology.html">Vedic Astrology</a><a href="about.html">About Us</a></div>' +
+      '<div class="f-col"><b>Divya Store</b><a href="store.html">DivyAum Pure</a><a href="aura.html">DivyAum Aura</a><a href="luxe.html">DivyAum Luxe</a></div><div class="f-col"><b>Services</b><a href="pooja.html">Online Pooja</a><a href="astrology.html">Vedic Astrology</a><a href="about.html">About Us</a></div>' +
       '<div class="f-col"><b>Support</b><a href="https://www.divyaum.com/faq">FAQ</a><a href="https://www.divyaum.com/shipping-return-policy">Shipping & Returns</a><a href="https://www.divyaum.com/privacy-policy">Privacy Policy</a><a href="https://www.divyaum.com/terms-conditions">Terms & Conditions</a></div>' +
       '<div class="f-col"><b>Contact</b><span>+91 97555 90829</span><span>11am – 6pm, all days</span><span>hello@divyaum.com</span><span style="display:flex;gap:16px;margin-top:6px"><a href="https://www.instagram.com/_divyaum">Instagram</a><a href="https://www.youtube.com/@Divyaum-1">YouTube</a><a href="https://www.linkedin.com/company/house-of-param-dharam/">LinkedIn</a></span></div>' +
       '</div><div class="f-bottom"><span>© 2026 Divyaum. All rights reserved.</span><span>Design preview — not the live store</span></div></div></footer>' +
