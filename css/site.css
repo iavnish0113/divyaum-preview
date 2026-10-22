@@ -67,7 +67,7 @@ nav.main a:hover,nav.main a.active{border-bottom-color:var(--flame);color:var(--
 .slides{position:relative;height:560px}
 .slide{position:absolute;inset:0;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);opacity:0;visibility:hidden;transition:opacity .8s ease,visibility .8s}
 .slide.on{opacity:1;visibility:visible}
-.slide-text{display:flex;flex-direction:column;justify-content:center;gap:20px;padding:0 64px 0 max(32px, calc((100vw - 1240px)/2 + 32px));color:var(--on-dark)}
+.slide-text{display:flex;flex-direction:column;justify-content:center;gap:20px;padding:0 64px 88px max(32px, calc((100vw - 1240px)/2 + 32px));color:var(--on-dark)}
 .slide-text .eyebrow{color:var(--gold)}
 .slide-text h1,.slide-text h2{color:#fff;font-size:58px;line-height:1.04}
 .slide-text p{margin:0;color:var(--on-dark-muted);font-size:18px;max-width:460px}

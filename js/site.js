@@ -30,7 +30,7 @@
     /* DivyAum Luxe */
     P("shiva-xl", "Shiva", "painting", "Acrylic on canvas · 29 × 38 in", 34999, 55000, "luxe", "1786192602483-4a561912f6bf238b.jpg", { sub2: "painting", lux: 1 }),
     P("buddha-xl", "Buddha", "painting", "Acrylic on canvas · 24 × 24 in", 21999, 28999, "luxe", "1786190558667-0a834562ffb44acb.png", { sub2: "painting", lux: 2 }),
-    P("radhakrishna", "Radha Krishna", "painting", "Acrylic on canvas · 20 × 20 in", 14999, 22000, "luxe", "1783683995569-24140e1633b10ce3.png", { sub2: "painting", lux: 3 }),
+    P("radhakrishna", "Radha Krishna", "painting", "Acrylic on canvas · 20 × 20 in", 14999, 22000, "luxe", "1783683995569-24140e1633b10ce3.png", { sub2: "painting", lux: 3, pos: "78% 50%" }),
     P("surya-chandra", "Surya-Chandra", "zardozi", "Hand-embroidered zardozi · 13 × 7 in", 6600, 8000, "luxe", "1786090644626-2dcab64ed30a9347.png", { sub2: "zardozi", lux: 4 }),
     P("tridevi", "Tridevi", "zardozi", "Hand-embroidered zardozi · 8 × 11 in", 7800, 9500, "luxe", "1786089718194-fec138698e1c8e26.png", { sub2: "zardozi", lux: 5 }),
     P("hanuman", "Hanuman", "painting", "Acrylic on canvas · 10 × 10 in", 4800, 6000, "luxe", "1786192407637-22e4b2a87b876fa7.png", { sub2: "painting", lux: 6 }),
@@ -79,7 +79,7 @@
   DV.card = function (p) {
     var t = p.tag ? '<span class="tag' + (p.tag === "Bestseller" ? " tag-flame" : "") + '">' + p.tag + "</span>" : "";
     return '<div class="card" data-cat="' + p.cat + '" data-sub="' + (p.sub2 || "") + '" data-price="' + p.price + '">' +
-      '<div class="card-media"><img loading="lazy" src="' + img(p.file, 640) + '" alt="' + p.name.replace(/"/g, "") + '">' + t +
+      '<div class="card-media"><img loading="lazy" src="' + img(p.file, 640) + '" alt="' + p.name.replace(/"/g, "") + '"' + (p.pos ? ' style="object-position:' + p.pos + '"' : "") + ">" + t +
       '<div class="quick-add"><button type="button" class="btn ' + (p.cat === "luxe" ? "btn-gold" : "btn-dark") + ' add">Add to cart</button></div></div>' +
       '<div class="card-body"><span class="kind">' + DV.icon(p.kind) + KIND[p.kind] + "</span>" +
       '<div class="card-title">' + p.name + "</div>" +
