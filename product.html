@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Product — Divyaum</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=8">
+</head>
+<body data-page="store">
+<div id="site-header"></div>
+
+<main>
+<section class="sec" style="padding-top:36px"><div class="wrap">
+<div class="crumbs" id="crumbs"></div>
+<div class="pdp">
+<div class="gallery"><div class="thumbs" id="thumbs"></div><div class="main-img"><img id="mainImg" src="" alt=""></div></div>
+<div class="pdp-info" id="info"></div>
+</div>
+</div></section>
+
+<section class="sec" style="background:#fff;border-top:1px solid var(--line)"><div class="wrap">
+<div class="sec-head"><div><div class="eyebrow">You may also like</div><h2 id="alsoTitle">More from Divya Store</h2></div><a href="store.html" class="text-link" id="alsoLink">Shop all →</a></div>
+<div class="grid grid-4" id="also"></div>
+</div></section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/site.js?v=8"></script>
+<script src="js/details.js?v=8"></script>
+<script>
+(function(){
+  var id = new URLSearchParams(location.search).get("id") || "sampoorna";
+  var p = DV.find(id) || DV.products[0], d = DV.details[p.id] || {};
+  var lux = p.cat === "luxe";
+  document.title = p.name + " — Divyaum";
+  if (lux) document.body.setAttribute("data-page", "luxe");
+  document.getElementById("crumbs").innerHTML = '<a href="index.html">Home</a> / <a href="' + (lux ? "luxe.html" : "store.html") + '">' + (lux ? "DivyAum Luxe" : "Divya Store") + "</a> / " + p.name;
+
+  /* gallery */
+  var imgs = [p.file].concat((d.g || []).map(function(f){ return "products/" + f; }));
+  var main = document.getElementById("mainImg"); main.alt = p.name;
+  function show(k){ main.src = DV.img(imgs[k], 1080); document.querySelectorAll("#thumbs button").forEach(function(b,j){ b.classList.toggle("on", j===k); }); }
+  document.getElementById("thumbs").innerHTML = imgs.map(function(f,k){ return '<button type="button" aria-label="Photo ' + (k+1) + '"><img src="' + DV.img(f, 256) + '" alt=""></button>'; }).join("");
+  document.querySelectorAll("#thumbs button").forEach(function(b,k){ b.addEventListener("click", function(){ show(k); }); });
+  show(0);
+
+  /* info */
+  var li = function(a){ return "<ul>" + a.map(function(x){ return "<li>" + x + "</li>"; }).join("") + "</ul>"; };
+  var acc = "";
+  if (d.inside) acc += '<details open><summary>What’s inside the box</summary><div class="acc-body">' + li(d.inside) + "</div></details>";
+  if (d.notes) acc += '<details' + (d.inside ? "" : " open") + '><summary>Fragrance notes</summary><div class="acc-body"><div class="notes">' + d.notes.map(function(n){ return '<div class="note"><b>' + n[0] + "</b><span>" + n[1] + "</span></div>"; }).join("") + "</div></div></details>";
+  if (d.use) acc += '<details><summary>How to use</summary><div class="acc-body"><ol>' + d.use.map(function(x){ return "<li>" + x + "</li>"; }).join("") + "</ol></div></details>";
+  if (d.pts) acc += '<details><summary>Why it’s pure</summary><div class="acc-body">' + li(d.pts) + "</div></details>";
+  if (d.spec) acc += '<details open><summary>Details</summary><div class="acc-body"><dl class="spec">' + d.spec.map(function(s){ return "<dt>" + s[0] + "</dt><dd>" + s[1] + "</dd>"; }).join("") + "</dl></div></details>";
+  if (d.care) acc += '<details><summary>Care</summary><div class="acc-body">' + li(d.care) + "</div></details>";
+  if (lux) acc += '<details><summary>Made by hand</summary><div class="acc-body">Every piece is made by hand by skilled artisans, so slight variation from the photos is natural — it is the mark of authenticity.</div></details>';
+
+  document.getElementById("info").innerHTML =
+    '<span class="kind">' + DV.icon(p.kind) + ({stick:"Dhoop Sticks",cone:"Dhoop Cones",cup:"Havan Cups",bottle:"Pooja Fragrance",box:"Combo Set",painting:"Painting",zardozi:"Zardozi Art",plate:"Wall Décor"})[p.kind] + "</span>" +
+    "<h1>" + p.name + "</h1>" +
+    '<div class="card-sub" style="font-size:16px;margin-top:-8px">' + p.sub + "</div>" +
+    '<div class="pdp-price"><span class="price">' + DV.inr(p.price) + '</span><span class="mrp">' + DV.inr(p.mrp) + '</span><span class="off">' + DV.off(p) + '</span></div>' +
+    '<div style="font-size:13px;color:var(--muted);margin-top:-12px">Inclusive of all taxes</div>' +
+    (d.burn ? '<span class="burn">' + DV.icon("stick") + "Total burn time: " + d.burn + "</span>" : "") +
+    '<p class="pdp-desc">' + (d.d || "") + "</p>" +
+    '<div class="buy"><div class="qty"><button type="button" id="qMinus" aria-label="Decrease quantity">−</button><span id="qtyVal">1</span><button type="button" id="qPlus" aria-label="Increase quantity">+</button></div>' +
+    '<button type="button" class="btn ' + (lux ? "btn-dark" : "btn-primary") + ' btn-lg add" data-id="' + p.id + '" data-use-qty="1">Add to cart</button></div>' +
+    '<button type="button" class="btn btn-outline btn-lg" id="buyNow">Buy now</button>' +
+    DV.badges() +
+    '<div class="acc">' + acc + "</div>";
+
+  var q = document.getElementById("qtyVal");
+  document.getElementById("qMinus").addEventListener("click", function(){ q.textContent = Math.max(1, +q.textContent - 1); });
+  document.getElementById("qPlus").addEventListener("click", function(){ q.textContent = +q.textContent + 1; });
+  document.getElementById("buyNow").addEventListener("click", function(){ DV.addToCart(p.id, +q.textContent); });
+
+  /* related */
+  var pool = DV.products.filter(function(x){ return x.id !== p.id && (lux ? x.cat === "luxe" : x.cat !== "luxe"); });
+  var same = pool.filter(function(x){ return x.cat === p.cat; }), rest = pool.filter(function(x){ return x.cat !== p.cat; });
+  document.getElementById("also").innerHTML = same.concat(rest).slice(0,4).map(DV.card).join("");
+  if (lux) { document.getElementById("alsoTitle").textContent = "More from DivyAum Luxe"; document.getElementById("alsoLink").href = "luxe.html"; }
+})();
+</script>
+</body>
+</html>

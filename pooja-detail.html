@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Pooja — Divyaum</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=8">
+</head>
+<body data-page="pooja">
+<div id="site-header"></div>
+
+<main>
+<section class="sec" style="padding-top:36px"><div class="wrap">
+<div class="crumbs" id="crumbs"></div>
+<div class="pd-hero">
+<div>
+<div class="gallery" style="position:static"><div class="thumbs" id="thumbs"></div><div class="main-img" style="aspect-ratio:3/2"><img id="mainImg" src="" alt=""></div></div>
+</div>
+<aside class="book-card" id="book"></aside>
+</div>
+</div></section>
+
+<section class="sec" style="background:#fff;border-top:1px solid var(--line)"><div class="wrap">
+<div class="split" style="grid-template-columns:minmax(0,5fr) minmax(0,7fr)">
+<div><div class="eyebrow">About this pooja</div><h2 id="aboutTitle"></h2></div>
+<p class="lead" id="about" style="margin-top:0;font-size:18px;max-width:none"></p>
+</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<div class="sec-head"><div><div class="eyebrow">Benefits</div><h2>Why devotees perform it</h2></div></div>
+<div class="ben-grid" id="benefits"></div>
+</div></section>
+
+<section class="sec dark"><div class="wrap temple">
+<img id="templeImg" src="" alt="">
+<div><div class="eyebrow">The temple</div><h2 id="templeName"></h2><p class="lead" id="templeStory"></p></div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<div class="sec-head"><div><div class="eyebrow">Included for ₹2,100</div><h2>Everything you receive</h2></div></div>
+<div class="incl" id="incl"></div>
+<div class="steps" style="margin-top:56px">
+<div class="step"><div class="n">01</div><b>Book your pooja</b><span>Choose an available date</span></div>
+<div class="step"><div class="n">02</div><b>Share sankalp details</b><span>Name and gotra of each person</span></div>
+<div class="step"><div class="n">03</div><b>Pooja at the temple</b><span>Performed by certified pandits</span></div>
+<div class="step"><div class="n">04</div><b>Receive the video</b><span>Recorded after the pooja</span></div>
+<div class="step"><div class="n">05</div><b>Receive prasad</b><span>Dispatched in 2–4 business days</span></div>
+</div>
+</div></section>
+
+<section class="sec" style="background:#fff;border-top:1px solid var(--line)"><div class="wrap split">
+<div><div class="eyebrow">Questions</div><h2>Before you book</h2><p class="lead">Still unsure? <a href="https://wa.me/919755590829" target="_blank" rel="noopener">Ask us on WhatsApp</a> — 11am to 6pm, every day.</p></div>
+<div class="faq">
+<details open><summary>Do I need to be present for the pooja?</summary><p>No. Certified pandits perform the pooja at the temple with your name and gotra in the sankalp. You receive a recorded video of the pooja afterwards.</p></details>
+<details><summary>Can I add family members?</summary><p>Yes. The price is ₹2,100 per person, and each person’s name and gotra is taken in the sankalp.</p></details>
+<details><summary>When will I receive the prasad?</summary><p>Prasad is dispatched 2–4 business days after the pooja is completed, and delivered by courier — in India and to select countries abroad.</p></details>
+<details><summary>What if I need to cancel?</summary><p>100% refund if you cancel 48 hours or more before the pooja, 50% between 24 and 48 hours, and 25% within 24 hours. If Divyaum cancels, you receive a full refund.</p></details>
+</div>
+</div></section>
+
+<section class="sec"><div class="wrap">
+<div class="sec-head"><div><div class="eyebrow">Other poojas</div><h2>You may also consider</h2></div><a href="pooja.html" class="text-link">All poojas →</a></div>
+<div class="grid grid-3" id="others"></div>
+</div></section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/site.js?v=8"></script>
+<script src="js/details.js?v=8"></script>
+<script>
+(function(){
+  var slug = new URLSearchParams(location.search).get("p") || DV.poojas[0].slug;
+  var p = DV.poojas.filter(function(x){ return x.slug === slug; })[0] || DV.poojas[0];
+  var d = DV.poojaDetails.filter(function(x){ return x.slug === p.slug; })[0];
+  document.title = p.name + " — Divyaum";
+  document.getElementById("crumbs").innerHTML = '<a href="index.html">Home</a> / <a href="pooja.html">Online Pooja</a> / ' + p.name;
+
+  var imgs = [p.file].concat(d.g);
+  var main = document.getElementById("mainImg"); main.alt = p.name;
+  function show(k){ main.src = DV.img(imgs[k], 1200); document.querySelectorAll("#thumbs button").forEach(function(b,j){ b.classList.toggle("on", j===k); }); }
+  document.getElementById("thumbs").innerHTML = imgs.map(function(f,k){ return '<button type="button" aria-label="Photo ' + (k+1) + '"><img src="' + DV.img(f, 256) + '" alt=""></button>'; }).join("");
+  document.querySelectorAll("#thumbs button").forEach(function(b,k){ b.addEventListener("click", function(){ show(k); }); });
+  show(0);
+
+  /* next available dates (set in js/details.js → DV.poojaDates) */
+  var dates = (DV.poojaDates[p.slug] || []).filter(function(x){ return new Date(x) >= new Date(new Date().toDateString()); });
+  var fmt = function(x){ return new Date(x).toLocaleDateString("en-IN", { weekday:"short", day:"numeric", month:"short" }); };
+  var dateHtml = dates.length
+    ? '<div class="date-box"><b>Next available date</b>Choose your date:<div class="date-list">' + dates.map(function(x,k){ return '<button type="button" class="' + (k?"":"on") + '" data-d="' + x + '">' + fmt(x) + "</button>"; }).join("") + "</div></div>"
+    : '<div class="date-box"><b>New dates opening soon</b>This month’s slots are fully booked. Reserve your place and we’ll confirm the next date on WhatsApp.</div>';
+  var wa = "https://wa.me/919755590829?text=" + encodeURIComponent("Namaste, I would like to book the " + p.name + ".");
+
+  document.getElementById("book").innerHTML =
+    '<span class="kind">' + p.tag + "</span>" +
+    '<h1 style="font-size:40px">' + p.name + "</h1>" +
+    '<div class="pj-meta" style="font-size:14px"><span>' + d.temple + "</span><span>" + DV.dur(d.dur) + "</span></div>" +
+    '<div style="display:flex;align-items:baseline;gap:10px"><span style="font-family:var(--serif);font-size:40px;font-weight:600">₹2,100</span><span style="color:var(--muted)">per person</span></div>' +
+    '<p style="margin:0;color:var(--body)">' + p.ben + "</p>" +
+    dateHtml +
+    '<a class="btn btn-primary btn-lg" href="' + wa + '" target="_blank" rel="noopener" id="bookBtn">' + (dates.length ? "Book now" : "Reserve my place") + "</a>" +
+    '<div class="mini-badges" style="justify-content:flex-start;flex-wrap:wrap"><span>Certified pandit</span><span>Video of your pooja</span><span>Prasad at home</span></div>';
+  document.querySelectorAll(".date-list button").forEach(function(b){ b.addEventListener("click", function(){
+    document.querySelectorAll(".date-list button").forEach(function(x){ x.classList.toggle("on", x===b); });
+    document.getElementById("bookBtn").href = "https://wa.me/919755590829?text=" + encodeURIComponent("Namaste, I would like to book the " + p.name + " on " + fmt(b.dataset.d) + ".");
+  }); });
+
+  document.getElementById("aboutTitle").textContent = p.name;
+  document.getElementById("about").textContent = d.about;
+  var lotus = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4c2 2.5 3 5 3 8s-1 5-3 7c-2-2-3-4-3-7s1-5.5 3-8z"/><path d="M5 9c3 .5 5 2.5 6 6M19 9c-3 .5-5 2.5-6 6M3 15c3-.5 6 .5 9 4 3-3.5 6-4.5 9-4"/></svg>';
+  document.getElementById("benefits").innerHTML = d.ben.map(function(b){ return '<div class="ben">' + lotus + "<div><b>" + b[0] + "</b><span>" + b[1] + "</span></div></div>"; }).join("");
+  document.getElementById("templeImg").src = DV.img(d.timg, 1080);
+  document.getElementById("templeImg").alt = d.temple;
+  document.getElementById("templeName").textContent = d.temple;
+  document.getElementById("templeStory").textContent = d.story;
+
+  var I = function(x){ return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">' + x + "</svg>"; };
+  document.getElementById("incl").innerHTML = [
+    [I('<path d="M4 20c2-6 5-9 8-9s6 3 8 9"/><circle cx="12" cy="6" r="3"/>'), "Your personal sankalp", "Name and gotra taken for every participant"],
+    [I('<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M8.5 12l2.5 2.5 4.5-5"/>'), "Certified pandit", "Qualified pandits with 10+ years’ experience"],
+    [I('<rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3"/>'), "Video of your pooja", "A recorded video, shared after the pooja"],
+    [I('<path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/>'), "Prasad at your door", "Delivered by courier, in India or abroad"],
+    [I('<path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-7.5z"/>'), "Performed at the temple", "As part of the temple’s group pooja"],
+    [I('<path d="M4 5h16v11H9l-5 4z"/>'), "Help on WhatsApp", "Our team guides you before and after"]
+  ].map(function(x){ return "<div>" + x[0] + "<b>" + x[1] + "</b><span>" + x[2] + "</span></div>"; }).join("");
+
+  document.getElementById("others").innerHTML = DV.poojas.filter(function(x){ return x.slug !== p.slug; }).sort(function(a,b){ return (a.cat===p.cat?0:1)-(b.cat===p.cat?0:1); }).slice(0,3).map(DV.poojaCard).join("");
+})();
+</script>
+</body>
+</html>

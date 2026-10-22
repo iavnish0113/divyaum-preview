@@ -49,15 +49,15 @@
   ];
 
   DV.poojas = [
-    { name: "Bhat Puja at Mangalnath Temple", place: "Mangalnath Temple", tag: "Mangal Dosha", cat: "dosha", ben: "Vedic ritual on the Swayambhu Shivalinga to pacify Mangal Dosha (Mars defects).", file: "pooja/1786453745508-4df891671ca36351.png" },
-    { name: "Mahamrityunjay 21,000 Jaap", place: "Performed by 5 Brahmans", tag: "Health", cat: "health", ben: "For recovery from illness, long life and freedom from fear. Often done on birthdays.", file: "pooja/1786606438734-545fa9da878d5567.png" },
-    { name: "Gadkalika Pooja", place: "Gadkalika Mandir", tag: "Career & Studies", cat: "wealth", ben: "At the Shakti Peeth linked to Kalidasa — for success in studies, career and finances.", file: "pooja/1786606522162-2f912130f5d83214.png" },
-    { name: "Rin Mukteshwar Pooja", place: "Temple pooja", tag: "Debt Relief", cat: "wealth", ben: "The “yellow puja” of Brihaspati, performed to ease the burden of debt.", file: "pooja/1786606591613-f349a0cc8554b83e.png" },
-    { name: "Kaal Bhairav Pooja", place: "Kaal Bhairav Temple", tag: "Family Peace", cat: "family", ben: "For family peace, gratitude and auspicious new beginnings.", file: "pooja/1786606683093-9e09c2deae86af55.png" },
-    { name: "Maa Baglamukhi Pooja", place: "Shakti pooja", tag: "Marriage & Success", cat: "family", ben: "For marriage success, leadership and protection from obstacles.", file: "pooja/1786606776020-999990089e9ca2cd.png" },
-    { name: "Har Siddhi Pooja", place: "Har Siddhi Shakti Peeth", tag: "Wishes", cat: "health", ben: "A powerful Shakti Peeth puja for health, prosperity and fulfilment of wishes.", file: "pooja/1786606864037-71924c830fe6b91e.png" },
-    { name: "Siddhnath Pooja", place: "Rare temple pooja", tag: "Kaal Sarp Dosh", cat: "dosha", ben: "A rare puja for the removal of Kaal Sarp Dosh and Pitr Dosh.", file: "pooja/1786606946165-bd24ea7c1280b5f0.png" },
-    { name: "Mahamrityunjay 41,000 Jaap", place: "Performed by 11 Brahmans", tag: "Health", cat: "health", ben: "The extended jaap by 11 Brahmans for serious illness and protection.", file: "pooja/1786608877976-f29aeb67dc0414f7.png" }
+    { slug: "bhat-puja-at-mangalnath-temple", dur: 180, name: "Bhat Puja at Mangalnath Temple", place: "Mangalnath Temple", tag: "Mangal Dosha", cat: "dosha", ben: "Vedic ritual on the Swayambhu Shivalinga to pacify Mangal Dosha (Mars defects).", file: "pooja/1786453745508-4df891671ca36351.png" },
+    { slug: "mahamrityunjay-21-000-jaap", dur: 180, name: "Mahamrityunjay 21,000 Jaap", place: "Performed by 5 Brahmans", tag: "Health", cat: "health", ben: "For recovery from illness, long life and freedom from fear. Often done on birthdays.", file: "pooja/1786606438734-545fa9da878d5567.png" },
+    { slug: "gadkalika-pooja", dur: 60, name: "Gadkalika Pooja", place: "Gadkalika Mandir", tag: "Career & Studies", cat: "wealth", ben: "At the Shakti Peeth linked to Kalidasa — for success in studies, career and finances.", file: "pooja/1786606522162-2f912130f5d83214.png" },
+    { slug: "rin-mukteshawar-pooja", dur: 120, name: "Rin Mukteshwar Pooja", place: "Temple pooja", tag: "Debt Relief", cat: "wealth", ben: "The “yellow puja” of Brihaspati, performed to ease the burden of debt.", file: "pooja/1786606591613-f349a0cc8554b83e.png" },
+    { slug: "kaal-bahirav-pooja-uujain", dur: 120, name: "Kaal Bhairav Pooja", place: "Kaal Bhairav Temple", tag: "Family Peace", cat: "family", ben: "For family peace, gratitude and auspicious new beginnings.", file: "pooja/1786606683093-9e09c2deae86af55.png" },
+    { slug: "maa-baglamukhi-pooja", dur: 240, name: "Maa Baglamukhi Pooja", place: "Shakti pooja", tag: "Marriage & Success", cat: "family", ben: "For marriage success, leadership and protection from obstacles.", file: "pooja/1786606776020-999990089e9ca2cd.png" },
+    { slug: "har-siddhi-pooja", dur: 180, name: "Har Siddhi Pooja", place: "Har Siddhi Shakti Peeth", tag: "Wishes", cat: "health", ben: "A powerful Shakti Peeth puja for health, prosperity and fulfilment of wishes.", file: "pooja/1786606864037-71924c830fe6b91e.png" },
+    { slug: "siddhnath-puja-2", dur: 300, name: "Siddhnath Pooja", place: "Rare temple pooja", tag: "Kaal Sarp Dosh", cat: "dosha", ben: "A rare puja for the removal of Kaal Sarp Dosh and Pitr Dosh.", file: "pooja/1786606946165-bd24ea7c1280b5f0.png" },
+    { slug: "mahamrityunjay-41-000-jaap", dur: 240, name: "Mahamrityunjay 41,000 Jaap", place: "Performed by 11 Brahmans", tag: "Health", cat: "health", ben: "The extended jaap by 11 Brahmans for serious illness and protection.", file: "pooja/1786608877976-f29aeb67dc0414f7.png" }
   ];
 
   /* ---------- small helpers ---------- */
@@ -74,24 +74,37 @@
   var KIND = { stick: "Dhoop Sticks", cone: "Dhoop Cones", cup: "Havan Cups", bottle: "Pooja Fragrance", box: "Combo Set", painting: "Painting", zardozi: "Zardozi Art", plate: "Wall Décor" };
   DV.icon = function (k) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + (ICONS[k] || "") + "</svg>"; };
   DV.inr = function (n) { return "₹" + n.toLocaleString("en-IN"); };
+  DV.dur = function (m) { return m < 60 ? m + " min" : (m % 60 ? (m / 60).toFixed(1) : m / 60) + (m === 60 ? " hour" : " hours"); };
+  DV.find = function (id) { for (var k = 0; k < DV.products.length; k++) if (DV.products[k].id === id) return DV.products[k]; };
   DV.off = function (p) { return Math.round((1 - p.price / p.mrp) * 100) + "% off"; };
 
   DV.card = function (p) {
     var t = p.tag ? '<span class="tag' + (p.tag === "Bestseller" ? " tag-flame" : "") + '">' + p.tag + "</span>" : "";
+    var href = "product.html?id=" + p.id;
     return '<div class="card" data-cat="' + p.cat + '" data-sub="' + (p.sub2 || "") + '" data-price="' + p.price + '">' +
-      '<div class="card-media"><img loading="lazy" src="' + img(p.file, 640) + '" alt="' + p.name.replace(/"/g, "") + '"' + (p.pos ? ' style="object-position:' + p.pos + '"' : "") + ">" + t +
-      '<div class="quick-add"><button type="button" class="btn ' + (p.cat === "luxe" ? "btn-gold" : "btn-dark") + ' add">Add to cart</button></div></div>' +
+      '<div class="card-media"><a href="' + href + '" tabindex="-1" aria-hidden="true"><img loading="lazy" src="' + img(p.file, 640) + '" alt=""' + (p.pos ? ' style="object-position:' + p.pos + '"' : "") + "></a>" + t +
+      '<div class="quick-add"><button type="button" class="btn ' + (p.cat === "luxe" ? "btn-gold" : "btn-dark") + ' add" data-id="' + p.id + '">Add to cart</button></div></div>' +
       '<div class="card-body"><span class="kind">' + DV.icon(p.kind) + KIND[p.kind] + "</span>" +
-      '<div class="card-title">' + p.name + "</div>" +
+      '<a class="card-title" href="' + href + '">' + p.name + "</a>" +
       '<div class="card-sub">' + p.sub + "</div>" +
       '<div class="prices"><span class="price">' + DV.inr(p.price) + '</span><span class="mrp">' + DV.inr(p.mrp) + '</span><span class="off">' + DV.off(p) + "</span></div>" +
-      '<button type="button" class="btn btn-outline btn-sm add mobile-add" style="margin-top:8px;display:none">Add to cart</button></div></div>';
+      '<button type="button" class="btn btn-outline btn-sm add mobile-add" data-id="' + p.id + '" style="margin-top:8px;display:none">Add to cart</button></div></div>';
+  };
+
+  DV.FREE_SHIP = 500;
+  DV.badges = function (dark) {
+    var I = function (d) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + "</svg>"; };
+    return '<div class="badges' + (dark ? " dark" : "") + '">' +
+      "<div>" + I('<path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/>') + "<span><b>Free delivery</b>on orders above ₹500</span></div>" +
+      "<div>" + I('<rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/>') + "<span><b>Cash on Delivery</b>available</span></div>" +
+      "<div>" + I('<path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v4h4"/>') + "<span><b>Easy returns</b>7 days for damaged or wrong items</span></div>" +
+      "<div>" + I('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>') + "<span><b>Fast dispatch</b>within 1–2 business days</span></div></div>";
   };
 
   DV.poojaCard = function (p) {
-    return '<a class="pj" href="pooja.html" data-cat="' + p.cat + '">' +
+    return '<a class="pj" href="pooja-detail.html?p=' + p.slug + '" data-cat="' + p.cat + '">' +
       '<div class="pj-media"><img loading="lazy" src="' + img(p.file, 828) + '" alt="' + p.name + '"><span class="tag">' + p.tag + "</span></div>" +
-      '<div class="pj-body"><div class="pj-meta"><span>' + p.place + "</span><span>60 min</span></div>" +
+      '<div class="pj-body"><div class="pj-meta"><span>' + p.place + "</span><span>" + DV.dur(p.dur) + "</span></div>" +
       '<div class="pj-name">' + p.name + '</div><div class="pj-ben">' + p.ben + "</div>" +
       '<div class="pj-foot"><div><div class="price">₹2,100</div><div class="from">per person</div></div><span class="btn btn-primary btn-sm">Book now</span></div></div></a>';
   };
@@ -102,11 +115,11 @@
   var hdr = document.getElementById("site-header");
   if (hdr) {
     hdr.outerHTML =
-      '<div class="announce"><div class="wrap"><span class="hide-sm">Natural, bamboo-free dhoop · Poojas at sacred temples · Prasad delivered worldwide</span><span>Help: <a href="tel:+919755590829">+91 97555 90829</a> · 11am–6pm</span></div></div>' +
+      '<div class="announce"><div class="wrap"><span class="hide-sm">Free delivery on orders above ₹500 within India · Natural, bamboo-free dhoop · Prasad delivered worldwide</span><span>Help: <a href="tel:+919755590829">+91 97555 90829</a> · 11am–6pm</span></div></div>' +
       '<header class="site"><div class="wrap"><a class="logo" href="index.html" aria-label="Divyaum home"><img src="assets/logo.png" alt="Divyaum"></a>' +
       '<nav class="main" id="mainNav" aria-label="Main">' + navItems.map(function (n) { return '<a href="' + n[0] + '"' + (n[2] === page ? ' class="active" aria-current="page"' : "") + ">" + n[1] + "</a>"; }).join("") + "</nav>" +
       '<div class="hdr-actions"><button class="icon-btn" type="button" aria-label="Search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>' +
-      '<button class="icon-btn" type="button" aria-label="Cart"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cart-count" id="cartCount">0</span></button>' +
+      '<button class="icon-btn" type="button" aria-label="Open cart" id="cartBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cart-count" id="cartCount">0</span></button>' +
       '<a href="#" class="btn btn-dark btn-sm">Login</a>' +
       '<button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainNav" id="menuBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div></div></header>';
   }
@@ -128,15 +141,63 @@
     var mb = document.getElementById("menuBtn"), nav = document.getElementById("mainNav");
     if (mb) mb.addEventListener("click", function () { var o = nav.classList.toggle("open"); mb.setAttribute("aria-expanded", o); });
 
-    var count = 0, cc = document.getElementById("cartCount"), toast = document.getElementById("toast"), tt;
+    var toast = document.getElementById("toast"), tt;
     function say(m) { toast.textContent = m; toast.classList.add("show"); clearTimeout(tt); tt = setTimeout(function () { toast.classList.remove("show"); }, 1800); }
+    DV.say = say;
+
+    /* ---------- cart (saved in this browser) ---------- */
+    function load() { try { return JSON.parse(localStorage.getItem("dv_cart") || "[]"); } catch (e) { return []; } }
+    function save(c) { try { localStorage.setItem("dv_cart", JSON.stringify(c)); } catch (e) {} }
+    var cart = load();
+    document.body.insertAdjacentHTML("beforeend",
+      '<div class="drawer-bg" id="drawerBg"></div><aside class="drawer" id="drawer" aria-label="Your cart" aria-hidden="true">' +
+      '<div class="drawer-head"><h3>Your cart</h3><button class="icon-btn" type="button" id="drawerClose" aria-label="Close cart"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
+      '<div class="ship" id="ship"></div><div class="drawer-items" id="drawerItems"></div>' +
+      '<div class="drawer-foot" id="drawerFoot"></div></aside>');
+    var drawer = document.getElementById("drawer"), bg = document.getElementById("drawerBg");
+    function open() { render(); drawer.classList.add("open"); bg.classList.add("open"); drawer.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; }
+    function close() { drawer.classList.remove("open"); bg.classList.remove("open"); drawer.setAttribute("aria-hidden", "true"); document.body.style.overflow = ""; }
+    DV.openCart = open;
+    function total() { return cart.reduce(function (t, l) { var p = DV.find(l.id); return t + (p ? p.price * l.qty : 0); }, 0); }
+    function count() { return cart.reduce(function (t, l) { return t + l.qty; }, 0); }
+    function badge() { var cc = document.getElementById("cartCount"), n = count(); cc.textContent = n; cc.style.display = n ? "flex" : "none"; }
+    function render() {
+      var t = total(), left = DV.FREE_SHIP - t, pct = Math.min(100, Math.round(t / DV.FREE_SHIP * 100));
+      document.getElementById("ship").innerHTML = cart.length ? (left > 0 ? "Add <b>" + DV.inr(left) + "</b> more for <b>FREE delivery</b>" : '<span class="ok">✓ You’ve unlocked <b>FREE delivery</b></span>') + '<div class="ship-bar"><i style="width:' + pct + '%"></i></div>' : "";
+      document.getElementById("drawerItems").innerHTML = cart.length ? cart.map(function (l) {
+        var p = DV.find(l.id); if (!p) return "";
+        return '<div class="line"><a href="product.html?id=' + p.id + '"><img src="' + img(p.file, 256) + '" alt=""></a><div class="line-info"><a href="product.html?id=' + p.id + '" class="line-name">' + p.name + '</a><div class="line-sub">' + p.sub + '</div>' +
+          '<div class="line-row"><div class="qty"><button type="button" data-q="-1" data-id="' + p.id + '" aria-label="Decrease quantity">−</button><span>' + l.qty + '</span><button type="button" data-q="1" data-id="' + p.id + '" aria-label="Increase quantity">+</button></div><b>' + DV.inr(p.price * l.qty) + '</b></div>' +
+          '<button type="button" class="line-remove" data-rm="' + p.id + '">Remove</button></div></div>';
+      }).join("") : '<div class="empty"><p>Your cart is empty.</p><a href="store.html" class="btn btn-dark">Shop essentials</a></div>';
+      var foot = document.getElementById("drawerFoot");
+      foot.innerHTML = cart.length ? '<div class="sum"><span>Subtotal</span><b>' + DV.inr(t) + '</b></div><div class="sum small"><span>Delivery</span><span>' + (left > 0 ? "Calculated at checkout" : "Free") + '</span></div>' +
+        '<button type="button" class="btn btn-primary btn-lg" style="width:100%" id="checkout">Checkout · ' + DV.inr(t) + "</button>" +
+        '<div class="mini-badges"><span>Cash on Delivery</span><span>Secure payment</span><span>7-day returns</span></div>' : "";
+      badge();
+    }
+    function add(id, qty) {
+      var l = cart.filter(function (x) { return x.id === id; })[0];
+      if (l) l.qty += qty || 1; else cart.push({ id: id, qty: qty || 1 });
+      save(cart); open();
+    }
+    DV.addToCart = add;
+    badge();
+    document.getElementById("cartBtn").addEventListener("click", open);
+    document.getElementById("drawerClose").addEventListener("click", close);
+    bg.addEventListener("click", close);
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") close(); });
+    drawer.addEventListener("click", function (e) {
+      var q = e.target.closest("[data-q]"), rm = e.target.closest("[data-rm]");
+      if (q) { var l = cart.filter(function (x) { return x.id === q.dataset.id; })[0]; l.qty += +q.dataset.q; if (l.qty < 1) cart.splice(cart.indexOf(l), 1); save(cart); render(); }
+      if (rm) { cart = cart.filter(function (x) { return x.id !== rm.dataset.rm; }); save(cart); render(); }
+      if (e.target.id === "checkout") say("Checkout opens on the live store — this is a design preview");
+    });
     document.addEventListener("click", function (e) {
-      var a = e.target.closest(".add"); if (!a) return;
+      var a = e.target.closest(".add"); if (!a || !a.dataset.id) return;
       e.preventDefault();
-      count++; cc.textContent = count; cc.style.display = "flex";
-      var t = a.textContent; a.textContent = "Added ✓"; a.classList.add("added");
-      setTimeout(function () { a.textContent = t; a.classList.remove("added"); }, 1400);
-      say("Added to cart");
+      var qEl = document.getElementById("qtyVal");
+      add(a.dataset.id, a.dataset.useQty && qEl ? parseInt(qEl.textContent, 10) : 1);
     });
 
     /* filter chips: <div class="chips" data-target="id" data-limit="n" data-key="cat|sub"> */
