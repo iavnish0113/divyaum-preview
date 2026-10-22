@@ -169,10 +169,13 @@ nav.main a:hover,nav.main a.active{border-bottom-color:var(--flame);color:var(--
 .step span{font-size:14px;color:var(--muted)}
 
 /* dark section (astrology) */
-.dark{background:radial-gradient(circle at 88% 0%,#FCF3E3 0%,var(--haldi-2) 35%,var(--haldi) 100%);color:var(--ink);border-top:1px solid var(--gold-soft);border-bottom:1px solid var(--gold-soft)}
-.dark .eyebrow{color:var(--kumkum)}
-.dark h2{color:var(--ink)}
-.dark .lead{color:var(--body)}
+.dark{background:radial-gradient(circle at 85% 0%,#E8862E 0%,#D4661D 40%,#B9481A 100%);color:#fff;border:0}
+.dark .eyebrow{color:#FFE3B8}
+.dark h1,.dark h2{color:#fff}
+.dark .lead{color:#FFF1DE}
+.dark .crumbs,.dark .crumbs a{color:#FFE3B8}.dark .crumbs a:hover{color:#fff}
+.dark .ticks{color:#fff}.dark .ticks svg{color:#FFE3B8}
+.dark .btn-gold{background:#FFF8EE;color:var(--kumkum)}.dark .btn-gold:hover{background:#fff;color:var(--kumkum)}
 .topic-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .topic-card{display:flex;flex-direction:column;gap:10px;padding:26px;border:1px solid var(--gold-soft);border-radius:var(--radius);color:var(--ink);text-decoration:none;background:#FFFBF4;transition:border-color .2s,background .2s,box-shadow .2s,transform .2s}
 .topic-card:hover{border-color:var(--gold);background:#fff;color:var(--ink);box-shadow:var(--shadow);transform:translateY(-2px)}
