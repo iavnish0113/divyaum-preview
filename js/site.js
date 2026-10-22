@@ -138,15 +138,15 @@
   var hdr = document.getElementById("site-header");
   if (hdr) {
     hdr.outerHTML =
-      '<div class="announce"><div class="wrap"><span class="hide-sm">Free delivery on orders above ₹500 within India · Natural, bamboo-free dhoop · Prasad delivered worldwide</span><span>Help: <a href="tel:+919755590829">+91 97555 90829</a> · 11am–6pm</span></div></div>' +
+      '<div class="announce"><div class="wrap"><span>Diwali is on Sunday, 8 November · Order early for delivery before Diwali · Free delivery above ₹500</span><span class="hide-sm">Help: <a href="tel:+919755590829">+91 97555 90829</a> · 11am–6pm</span></div></div>' +
       '<header class="site"><div class="wrap"><a class="logo" href="index.html" aria-label="Divyaum home"><img src="assets/logo.png" alt="Divyaum"></a>' +
       '<nav class="main" id="mainNav" aria-label="Main">' +
       '<div class="has-menu"><a href="store.html" class="' + (["store", "aura", "luxe"].indexOf(page) > -1 ? "active" : "") + '" aria-haspopup="true">Divya Store <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></a>' +
       '<div class="menu"><a href="store.html"><b>DivyAum Pure</b><span>Dhoop, havan cups &amp; pooja essentials</span></a><a href="aura.html"><b>DivyAum Aura</b><span>Rudraksha, stone bracelets &amp; murtis</span></a><a href="luxe.html"><b>DivyAum Luxe</b><span>Hand-painted &amp; zardozi sacred art</span></a></div></div>' +
       navItems.map(function (n) { return '<a href="' + n[0] + '"' + (n[2] === page ? ' class="active" aria-current="page"' : "") + ">" + n[1] + "</a>"; }).join("") + "</nav>" +
-      '<div class="hdr-actions"><button class="icon-btn" type="button" aria-label="Search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>' +
+      '<div class="hdr-actions"><button class="icon-btn" type="button" aria-label="Search" id="searchBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>' +
       '<button class="icon-btn" type="button" aria-label="Open cart" id="cartBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg><span class="cart-count" id="cartCount">0</span></button>' +
-      '<a href="#" class="btn btn-dark btn-sm">Login</a>' +
+      '<div class="acct" id="acct"><button type="button" class="btn btn-dark btn-sm" id="loginBtn">Login</button></div>' +
       '<button class="icon-btn menu-btn" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mainNav" id="menuBtn"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button></div></div></header>';
   }
   var ftr = document.getElementById("site-footer");
@@ -155,7 +155,7 @@
       '<footer class="site"><div class="wrap"><div class="f-cols">' +
       '<div class="f-brand"><img src="assets/logo.png" alt="Divyaum"><div class="f-motto">Shraddha · Samarpan · Shakti</div><p>Authentic online pooja, trusted astrology guidance, and sacred essentials delivered with devotion.</p></div>' +
       '<div class="f-col"><b>Divya Store</b><a href="store.html">DivyAum Pure</a><a href="aura.html">DivyAum Aura</a><a href="luxe.html">DivyAum Luxe</a></div><div class="f-col"><b>Services</b><a href="pooja.html">Online Pooja</a><a href="astrology.html">Vedic Astrology</a><a href="about.html">About Us</a></div>' +
-      '<div class="f-col"><b>Support</b><a href="https://www.divyaum.com/faq">FAQ</a><a href="https://www.divyaum.com/shipping-return-policy">Shipping & Returns</a><a href="https://www.divyaum.com/privacy-policy">Privacy Policy</a><a href="https://www.divyaum.com/terms-conditions">Terms & Conditions</a></div>' +
+      '<div class="f-col"><b>Support</b><a href="track.html">Track your order</a><a href="https://www.divyaum.com/faq">FAQ</a><a href="https://www.divyaum.com/shipping-return-policy">Shipping & Returns</a><a href="https://www.divyaum.com/privacy-policy">Privacy Policy</a><a href="https://www.divyaum.com/terms-conditions">Terms & Conditions</a></div>' +
       '<div class="f-col"><b>Contact</b><span>+91 97555 90829</span><span>11am – 6pm, all days</span><span>hello@divyaum.com</span><span style="display:flex;gap:16px;margin-top:6px"><a href="https://www.instagram.com/_divyaum">Instagram</a><a href="https://www.youtube.com/@Divyaum-1">YouTube</a><a href="https://www.linkedin.com/company/house-of-param-dharam/">LinkedIn</a></span></div>' +
       '</div><div class="f-bottom"><span>© 2026 Divyaum. All rights reserved.</span><span>Design preview — not the live store</span></div></div></footer>' +
       '<a href="https://wa.me/919755590829" class="wa-float" aria-label="Chat on WhatsApp" target="_blank" rel="noopener"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/></svg></a>' +
@@ -217,7 +217,7 @@
       var q = e.target.closest("[data-q]"), rm = e.target.closest("[data-rm]");
       if (q) { var l = cart.filter(function (x) { return x.id === q.dataset.id; })[0]; l.qty += +q.dataset.q; if (l.qty < 1) cart.splice(cart.indexOf(l), 1); save(cart); render(); }
       if (rm) { cart = cart.filter(function (x) { return x.id !== rm.dataset.rm; }); save(cart); render(); }
-      if (e.target.id === "checkout") say("Checkout opens on the live store — this is a design preview");
+      if (e.target.id === "checkout") placeOrder();
     });
     document.addEventListener("click", function (e) {
       var a = e.target.closest(".add"); if (!a || !a.dataset.id) return;
@@ -225,6 +225,105 @@
       var qEl = document.getElementById("qtyVal");
       add(a.dataset.id, a.dataset.useQty && qEl ? parseInt(qEl.textContent, 10) : 1);
     });
+
+    /* ---------- demo checkout → order (saved in this browser) ---------- */
+    function placeOrder() {
+      var items = cart.map(function (l) { var p = DV.find(l.id); return { id: l.id, qty: l.qty, name: p.name, price: p.price, file: p.file }; });
+      var id = "DV" + String(Date.now()).slice(-6);
+      var order = { id: id, date: new Date().toISOString(), items: items, total: total(), status: 1 };
+      var orders = []; try { orders = JSON.parse(localStorage.getItem("dv_orders") || "[]"); } catch (e) {}
+      orders.unshift(order); try { localStorage.setItem("dv_orders", JSON.stringify(orders)); } catch (e) {}
+      cart = []; save(cart); render(); close();
+      location.href = "track.html?order=" + id + "&new=1";
+    }
+
+    /* ---------- search ---------- */
+    document.body.insertAdjacentHTML("beforeend",
+      '<div class="ov" id="searchOv" role="dialog" aria-modal="true" aria-label="Search"><div class="ov-bg" data-close></div><div class="search-panel">' +
+      '<div class="search-top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>' +
+      '<input id="searchIn" type="search" placeholder="Search dhoop, poojas, rudraksha, paintings…" autocomplete="off" aria-label="Search the store">' +
+      '<button class="icon-btn" type="button" data-close aria-label="Close search"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>' +
+      '<div class="search-res" id="searchRes"></div></div></div>');
+    var sov = document.getElementById("searchOv"), sin = document.getElementById("searchIn"), sres = document.getElementById("searchRes");
+    var index = [];
+    DV.products.forEach(function (p) { index.push({ g: p.cat === "luxe" ? "DivyAum Luxe" : "DivyAum Pure", t: p.name, s: p.sub, k: (p.name + " " + p.sub + " " + p.kind + " " + p.cat).toLowerCase(), img: img(p.file, 256), price: DV.inr(p.price), href: "product.html?id=" + p.id }); });
+    (DV.aura || []).forEach(function (p) { index.push({ g: "DivyAum Aura", t: p.name, s: p.sub + " · coming soon", k: (p.name + " " + p.sub + " " + p.cat + " bracelet rudraksha murti").toLowerCase(), img: "assets/aura/" + p.img + ".webp", price: "", href: "aura.html?c=" + p.cat }); });
+    DV.poojas.forEach(function (p) { index.push({ g: "Online Pooja", t: p.name, s: p.place + " · ₹2,100", k: (p.name + " " + p.place + " " + p.tag + " " + p.ben + " pooja puja").toLowerCase(), img: img(p.file, 256), price: "", href: "pooja-detail.html?p=" + p.slug }); });
+    [["Vedic Astrology", "Career, marriage, health, kundli, vastu", "astrology.html", "astrology kundli horoscope career marriage jyotish vastu"], ["About Us", "Our story, mission and founders", "about.html", "about founders mission story"], ["Track your order", "See where your order is", "track.html", "track order delivery status shipping"]].forEach(function (x) { index.push({ g: "Pages", t: x[0], s: x[1], k: (x[0] + " " + x[3]).toLowerCase(), href: x[2] }); });
+    function sitem(r) { return '<a class="sr" href="' + r.href + '">' + (r.img ? '<img src="' + r.img + '" alt="">' : '<span class="sr-ic">' + DV.icon("box") + "</span>") + "<span><b>" + r.t + "</b><span>" + r.s + "</span></span>" + (r.price ? '<span class="sr-price">' + r.price + "</span>" : "") + "</a>"; }
+    function search(q) {
+      q = q.trim().toLowerCase();
+      if (!q) { sres.innerHTML = '<div class="sr-group">Popular searches</div><div class="sr-chips">' + ["Dhoop cones", "Havan cups", "Sampoorna", "Rudraksha", "Mahamrityunjay", "Shiva painting", "Kundli"].map(function (c) { return '<button type="button" data-q="' + c + '">' + c + "</button>"; }).join("") + "</div>"; return; }
+      var words = q.split(/\s+/), hits = index.filter(function (r) { return words.every(function (w) { return r.k.indexOf(w) > -1; }); });
+      if (!hits.length) { sres.innerHTML = '<div class="sr-hint">No results for “' + q.replace(/</g, "") + '”. Try “dhoop”, “pooja” or “rudraksha” — or <a href="https://wa.me/919755590829" target="_blank" rel="noopener">ask us on WhatsApp</a>.</div>'; return; }
+      var groups = {}; hits.forEach(function (h) { (groups[h.g] = groups[h.g] || []).push(h); });
+      sres.innerHTML = Object.keys(groups).map(function (g) { return '<div class="sr-group">' + g + "</div>" + groups[g].slice(0, 6).map(sitem).join(""); }).join("");
+    }
+    function openSearch() { sov.classList.add("open"); document.body.style.overflow = "hidden"; search(sin.value); setTimeout(function () { sin.focus(); }, 30); }
+    function closeOv() { document.querySelectorAll(".ov.open").forEach(function (o) { o.classList.remove("open"); }); document.body.style.overflow = ""; }
+    DV.openSearch = openSearch;
+    document.getElementById("searchBtn").addEventListener("click", openSearch);
+    sin.addEventListener("input", function () { search(sin.value); });
+    sin.addEventListener("keydown", function (e) { if (e.key === "Enter") { var a = sres.querySelector(".sr"); if (a) location.href = a.getAttribute("href"); } });
+    sres.addEventListener("click", function (e) { var c = e.target.closest("[data-q]"); if (c) { sin.value = c.dataset.q; search(sin.value); sin.focus(); } });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") closeOv(); if (e.key === "/" && !/input|textarea/i.test(document.activeElement.tagName)) { e.preventDefault(); openSearch(); } });
+    document.addEventListener("click", function (e) { if (e.target.closest("[data-close]")) closeOv(); });
+
+    /* ---------- login (preview: phone + OTP, saved in this browser) ---------- */
+    document.body.insertAdjacentHTML("beforeend",
+      '<div class="ov" id="loginOv" role="dialog" aria-modal="true" aria-label="Login"><div class="ov-bg" data-close></div><div class="login-panel">' +
+      '<button class="icon-btn x" type="button" data-close aria-label="Close"><svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg></button>' +
+      '<div id="lStep1"><div class="eyebrow">Welcome to Divyaum</div><h3>Login or sign up</h3><p style="color:var(--muted);margin:6px 0 18px">Use your mobile number — we’ll send a one-time code.</p>' +
+      '<label class="f">Your name<input id="lName" type="text" autocomplete="name" placeholder="Name"></label><div style="height:12px"></div>' +
+      '<label class="f">Mobile number<input id="lPhone" type="tel" inputmode="numeric" autocomplete="tel" placeholder="+91 98765 43210"></label>' +
+      '<button type="button" class="btn btn-primary btn-lg" style="width:100%;margin-top:18px" id="lSend">Send OTP</button></div>' +
+      '<div id="lStep2" style="display:none"><div class="eyebrow">Verify</div><h3>Enter the code</h3><p style="color:var(--muted);margin:6px 0 18px" id="lSent"></p>' +
+      '<div class="otp" id="otp"><input maxlength="1" inputmode="numeric" aria-label="Digit 1"><input maxlength="1" inputmode="numeric" aria-label="Digit 2"><input maxlength="1" inputmode="numeric" aria-label="Digit 3"><input maxlength="1" inputmode="numeric" aria-label="Digit 4"></div>' +
+      '<button type="button" class="btn btn-primary btn-lg" style="width:100%;margin-top:18px" id="lVerify">Verify &amp; continue</button>' +
+      '<div class="demo-note" style="margin-top:14px">Design preview: no SMS is sent. Enter any 4 digits.</div></div>' +
+      "</div></div>");
+    var lov = document.getElementById("loginOv");
+    function user() { try { return JSON.parse(localStorage.getItem("dv_user") || "null"); } catch (e) { return null; } }
+    function renderAcct() {
+      var u = user(), box = document.getElementById("acct");
+      if (!u) { box.innerHTML = '<button type="button" class="btn btn-dark btn-sm" id="loginBtn">Login</button>'; document.getElementById("loginBtn").addEventListener("click", openLogin); return; }
+      box.innerHTML = '<button type="button" class="acct-btn" id="acctBtn" aria-haspopup="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>' + (u.name || "Account").split(" ")[0] + "</button>" +
+        '<div class="acct-menu"><div class="who">Namaste, ' + (u.name || "") + "<br>" + u.phone + '</div><a href="track.html">My orders</a><a href="pooja.html">Book a pooja</a><button type="button" id="logout">Log out</button></div>';
+      document.getElementById("acctBtn").addEventListener("click", function (e) { e.stopPropagation(); box.classList.toggle("open"); });
+      document.getElementById("logout").addEventListener("click", function () { try { localStorage.removeItem("dv_user"); } catch (e) {} renderAcct(); say("Logged out"); });
+    }
+    function openLogin() { document.getElementById("lStep1").style.display = ""; document.getElementById("lStep2").style.display = "none"; lov.classList.add("open"); setTimeout(function () { document.getElementById("lName").focus(); }, 30); }
+    DV.openLogin = function () { if (user()) location.href = "track.html"; else openLogin(); };
+    document.addEventListener("click", function () { var b = document.getElementById("acct"); if (b) b.classList.remove("open"); });
+    document.getElementById("lSend").addEventListener("click", function () {
+      var ph = document.getElementById("lPhone").value.replace(/[^\d+]/g, "");
+      if (ph.replace(/\D/g, "").length < 10) { say("Please enter a valid mobile number"); return; }
+      document.getElementById("lSent").textContent = "We’ve sent a 4-digit code to " + ph + ".";
+      document.getElementById("lStep1").style.display = "none"; document.getElementById("lStep2").style.display = "";
+      document.querySelector("#otp input").focus();
+    });
+    var otpIns = document.querySelectorAll("#otp input");
+    otpIns.forEach(function (inp, k) { inp.addEventListener("input", function () { inp.value = inp.value.replace(/\D/g, ""); if (inp.value && otpIns[k + 1]) otpIns[k + 1].focus(); }); });
+    document.getElementById("lVerify").addEventListener("click", function () {
+      var code = Array.prototype.map.call(otpIns, function (i) { return i.value; }).join("");
+      if (code.length < 4) { say("Enter the 4-digit code"); return; }
+      try { localStorage.setItem("dv_user", JSON.stringify({ name: document.getElementById("lName").value.trim() || "Devotee", phone: document.getElementById("lPhone").value.trim() })); } catch (e) {}
+      closeOv(); renderAcct(); say("Welcome to Divyaum");
+      otpIns.forEach(function (i) { i.value = ""; });
+    });
+    renderAcct();
+
+    /* ---------- phone bottom bar ---------- */
+    var P = page, Ic = function (d) { return '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + d + "</svg>"; };
+    document.body.insertAdjacentHTML("beforeend", '<nav class="mbar" aria-label="Quick links">' +
+      '<a href="index.html" class="' + (P === "home" ? "on" : "") + '">' + Ic('<path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/>') + "Home</a>" +
+      '<a href="store.html" class="' + (["store", "aura", "luxe"].indexOf(P) > -1 ? "on" : "") + '">' + Ic('<path d="M5 8h14l-1 12H6L5 8z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/>') + "Shop</a>" +
+      '<a href="pooja.html" class="' + (P === "pooja" ? "on" : "") + '">' + Ic('<path d="M12 3c2 3 5 5 5 9a5 5 0 0 1-10 0c0-2 1-3.5 2-4.5 0 2 1 3 2 3 0-3-1-5 1-7.5z"/>') + "Pooja</a>" +
+      '<button type="button" id="mbCart">' + Ic('<path d="M3 4h2l2.5 11h11L21 7H7"/><circle cx="9" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/>') + 'Cart<span class="mb-count" id="mbCount"></span></button>' +
+      '<button type="button" id="mbAcct" class="' + (P === "track" ? "on" : "") + '">' + Ic('<circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4 4.5-6 8-6s6.5 2 8 6"/>') + "Account</button></nav>");
+    document.getElementById("mbCart").addEventListener("click", open);
+    document.getElementById("mbAcct").addEventListener("click", DV.openLogin);
+    var _badge = badge; badge = function () { _badge(); var n = count(), m = document.getElementById("mbCount"); if (m) { m.textContent = n; m.style.display = n ? "flex" : "none"; } }; badge();
 
     /* filter chips: <div class="chips" data-target="id" data-limit="n" data-key="cat|sub"> */
     document.querySelectorAll(".chips[data-target]").forEach(function (group) {

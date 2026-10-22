@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Track your order — Divyaum</title>
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/site.css?v=12">
+</head>
+<body data-page="track">
+<div id="site-header"></div>
+
+<main>
+<section class="page-hero"><div class="wrap">
+<div class="crumbs"><a href="index.html">Home</a> / Track your order</div>
+<div class="eyebrow">Orders</div>
+<h1>Track your order</h1>
+<p class="lead">Enter your order number and the mobile number you used. You’ll find the order number in your confirmation message.</p>
+</div></section>
+
+<section class="sec" style="padding-top:48px"><div class="wrap"><div class="track-box">
+<div id="placed"></div>
+<form class="form-card" id="trackForm" style="box-shadow:none;border:1px solid var(--line)">
+<div class="fields">
+<label class="f">Order number<input id="tOrder" type="text" placeholder="e.g. DV10234" autocomplete="off"></label>
+<label class="f">Mobile number<input id="tPhone" type="tel" placeholder="+91" autocomplete="tel"></label>
+</div>
+<button type="submit" class="btn btn-primary btn-lg">Track order</button>
+<div class="demo-note">Design preview: try order number <b>DV10234</b> to see a sample order on its way. Orders you place from the cart on this preview also appear here.</div>
+</form>
+<div id="result"></div>
+<div id="myOrders"></div>
+</div></div></section>
+</main>
+
+<div id="site-footer"></div>
+<script src="js/site.js?v=12"></script>
+<script>
+(function(){
+  var STEPS = [["Order placed","We’ve received your order"],["Confirmed & packed","Your order is packed with care"],["Dispatched","Handed to our courier partner"],["Out for delivery","Arriving today"],["Delivered","Delivered to your address"]];
+  function orders(){ try { return JSON.parse(localStorage.getItem("dv_orders") || "[]"); } catch(e){ return []; } }
+  var sample = { id:"DV10234", date:new Date(Date.now()-3*864e5).toISOString(), status:3, courier:"[COURIER]", awb:"[AWB NUMBER]",
+    items:[{id:"sampoorna",qty:1},{id:"cones-guggul",qty:2}] };
+  sample.items.forEach(function(i){ var p=DV.find(i.id); i.name=p.name; i.price=p.price; i.file=p.file; });
+  sample.total = sample.items.reduce(function(t,i){ return t+i.price*i.qty; },0);
+  function find(id){ id=(id||"").trim().toUpperCase(); if(id===sample.id) return sample; return orders().filter(function(o){ return o.id===id; })[0]; }
+  var fmt = function(d){ return new Date(d).toLocaleDateString("en-IN",{day:"numeric",month:"short",year:"numeric"}); };
+  function show(o){
+    var r=document.getElementById("result");
+    if(!o){ r.innerHTML='<div class="order-card"><b>We couldn’t find that order.</b><p style="color:var(--muted);margin:6px 0 0">Please check the number, or <a href="https://wa.me/919755590829" target="_blank" rel="noopener">message us on WhatsApp</a>.</p></div>'; return; }
+    var eta=new Date(new Date(o.date).getTime()+7*864e5);
+    r.innerHTML='<div class="order-card"><div class="order-head"><div><div class="from">Order</div><b style="font-size:20px">'+o.id+'</b></div><div><div class="from">Placed on</div><b>'+fmt(o.date)+'</b></div><div><div class="from">Expected by</div><b>'+fmt(eta)+'</b></div><div><div class="from">Total</div><b>'+DV.inr(o.total)+'</b></div></div>'+
+      '<div class="order-items">'+o.items.map(function(i){ return '<div><img src="'+DV.img(i.file,128)+'" alt=""><span>'+i.name+' × '+i.qty+'</span><b style="margin-left:auto">'+DV.inr(i.price*i.qty)+'</b></div>'; }).join("")+'</div>'+
+      '<ul class="timeline">'+STEPS.map(function(s,k){ var cls=k<o.status?"done":(k===o.status?"now":""); return '<li class="'+cls+'"><span class="dot">'+(k<o.status?'<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>':"")+'</span><b>'+s[0]+'</b><span>'+s[1]+(k===2&&o.courier&&k<o.status?' · '+o.courier+' '+o.awb:"")+'</span></li>'; }).join("")+'</ul>'+
+      '<div style="display:flex;flex-wrap:wrap;gap:10px"><a class="btn btn-outline btn-sm" href="https://wa.me/919755590829?text='+encodeURIComponent("Namaste, I need help with order "+o.id)+'" target="_blank" rel="noopener">Need help? WhatsApp us</a></div></div>';
+    r.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  var q=new URLSearchParams(location.search);
+  if(q.get("new")){ document.getElementById("placed").innerHTML='<div class="order-card" style="margin:0 0 24px;background:#EAF3ED;border-color:#CFE3D6"><b style="font-size:18px">Thank you — your order is placed.</b><p style="margin:6px 0 0;color:var(--body)">Order number <b>'+q.get("order")+'</b>. (Design preview: no payment was taken and nothing will be shipped.)</p></div>'; }
+  if(q.get("order")){ document.getElementById("tOrder").value=q.get("order"); show(find(q.get("order"))); }
+  document.getElementById("trackForm").addEventListener("submit",function(e){ e.preventDefault(); show(find(document.getElementById("tOrder").value)); });
+  var mine=orders(); if(mine.length) document.getElementById("myOrders").innerHTML='<h2 style="font-size:32px;margin-top:48px">Your recent orders</h2>'+mine.slice(0,5).map(function(o){ return '<a class="order-card" style="display:flex;justify-content:space-between;text-decoration:none;color:var(--ink);padding:18px 22px;margin-top:12px" href="track.html?order='+o.id+'"><b>'+o.id+'</b><span>'+fmt(o.date)+' · '+DV.inr(o.total)+'</span></a>'; }).join("");
+})();
+</script>
+</body>
+</html>
