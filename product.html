@@ -38,7 +38,7 @@
   var p = DV.find(id) || DV.products[0], d = DV.details[p.id] || {};
   var lux = p.cat === "luxe";
   document.title = p.name + " — Divyaum";
-  if (lux) document.body.setAttribute("data-page", "luxe");
+  if (lux) document.querySelectorAll("nav.main a").forEach(function(a){ var on = a.getAttribute("href") === "luxe.html"; a.classList.toggle("active", on); if (on) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
   document.getElementById("crumbs").innerHTML = '<a href="index.html">Home</a> / <a href="' + (lux ? "luxe.html" : "store.html") + '">' + (lux ? "DivyAum Luxe" : "Divya Store") + "</a> / " + p.name;
 
   /* gallery */
